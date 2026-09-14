@@ -1,0 +1,21 @@
+#fonts
+.rubik-spray-paint-regular {
+  font-family: "Rubik Spray Paint", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.homeButton {
+    border-radius: 25%;
+    border-color: darkgoldenrod;
+    background-color: blanchedalmond;
+    padding: auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 40px;
+    max-width: 100px;
+    font-family: "Rubik Spray Paint", system-ui;
+}
+
+
