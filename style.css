@@ -27,7 +27,7 @@
     border-color: darkgoldenrod;
     background-color: blanchedalmond;
     padding: 12px;
-    font-family: "Rubik Spray Paint", system-ui;
+    font-family: "Rubik Spray Paint", system-ui;5
 }
 
 .homeButtonDiv {
@@ -36,6 +36,10 @@
   width: fit-content;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.BackButtonArrange {
+
 }
 
 
