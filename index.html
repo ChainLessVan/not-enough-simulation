@@ -10,10 +10,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rubik+Glitch&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="title1Div"><h1 class="title1">too much simulation</h1></div>
-    <div class="movingText"><marquee class="flash"><p class="flashingText">DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - </p></marquee></div>
-    <div class="homeButtonDiv"><button class="homeButton">PLAY</button></div>
-    <div class="homeButtonDiv"> <button class="homeButton">SETTINGS</button></div>
+    <div id="main_menu">
+        <div class="title1Div"><h1 class="title1">too much simulation</h1></div>
+        <div class="movingText">
+            <marquee class="flash">
+                <p class="flashingText">
+                    DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - 
+                </p>
+            </marquee>
+        </div>
+        <div class="homeButtonDiv"><button class="homeButton" onclick="openpage()">PLAY</button></div>
+        <div class="homeButtonDiv"> <button class="homeButton">SETTINGS</button></div>
+    </div>
+    <div id="gameArea" style="display:none;"></div>
+
+    <script src="script.js"></script>
+    
 </body>
 </html>
 
