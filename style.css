@@ -27,7 +27,7 @@
     border-color: darkgoldenrod;
     background-color: blanchedalmond;
     padding: 12px;
-    font-family: "Rubik Spray Paint", system-ui;5
+    font-family: "Rubik Spray Paint", system-ui;
 }
 
 .homeButtonDiv {
@@ -38,9 +38,15 @@
   margin-bottom: 10px;
 }
 
-.BackButtonArrange {
 
-}
+.BackButtonArrange {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+} 
+
 
 
 
@@ -81,7 +87,15 @@
   font-family: "Permanent Marker", cursive;
 }
 
-
+#gameArea {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  padding-top: 40px;
+  width: 100%;
+  height: 100vh;
+}
 
 
 /* frames */
@@ -99,12 +113,3 @@
   90% {opacity: 0}
 }
 
-#gameArea {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: center;
-  padding-top: 40px;
-  width: 100%;
-  height: 100vh;
-}
