@@ -10,8 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rubik+Glitch&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <!--put everything inside the main_menu container for the main screen/starting menu -->
     <div id="main_menu">
+        <audio id="MainMusic" src="MainMenuBackground.mp3" loop></audio>
         <div class="title1Div"><h1 class="title1">too much simulation</h1></div>
         <div class="movingText">
             <marquee class="flash">
@@ -23,19 +25,52 @@
         <div class="homeButtonDiv"><button class="homeButton" onclick="opengames()">PLAY</button></div>
         <div class="homeButtonDiv"> <button class="homeButton" onclick="opensettings()"> SETTINGS</button></div>
     </div>
-    <div id="gameArea" style="display:none;">
+
+
+
+    <div id="speedtype" style="display:none;">
         <span>
-            <h2>this is game</h2>
+            <h2>this is speedtyper</h2>
             <p> just test </p>
         </span>
     </div>
-    <div id="settings" style="display:none;"></div>
+
+
+
+
+
+    <div id="settings" style="display:none;">
+        <span>
+            <h2> Settings </h2>
+            <div class="VolumeSlider">
+                <input type="range" id="volumeControl" min="0" max="100" value="50">
+                <p> Volume </p>
+            </div>
+            <button class="homeButton" onclick="returnFromSettings()"> Back </button>
+        </span>
+    </div>
+
+
+
+
+
+
+
+
     <div id="gameMenu" style="display:none;">
         <span>
             <h2 class="title2">Select your game.</h2>
-            <button class="backButton1" onclick="back1()">Back</button>
+            <button class="homeButton" onclick="opentyperace()"> Speedtyper </button>
+            <button class="homeButton" onclick="back1()">Back</button>
+
+
         </span>
     </div>
+
+
+
+
+
     <script src="script.js"></script>
 </body>
 </html>
