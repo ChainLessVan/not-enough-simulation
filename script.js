@@ -12,6 +12,13 @@ function opentyperace() {
     document.getElementById("speedtype").style.display = "block";
 }
 
+function returnFromType() {
+    document.getElementById("speedtype").style.display = "none";
+    document.getElementById("gameMenu").style.display = "block";
+
+        music.play();
+}
+
 function opensettings() {
     document.getElementById("main_menu").style.display = "none";
     document.getElementById("settings").style.display = "block";

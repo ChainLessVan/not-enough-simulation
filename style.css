@@ -41,12 +41,17 @@
 }
 
 
-.BackButtonArrange {
+.return {
   position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+  border-radius: 25%;
+  border-color: darkgoldenrod;
+  background-color: blanchedalmond;
+  padding: 12px;
+  font-family: "Rubik Spray Paint", system-ui;
 } 
 
 
