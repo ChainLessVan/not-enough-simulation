@@ -44,7 +44,7 @@ function returnFromType() {
 
 const words = [
     "digital", "simulation", "keyboard", "speed", "future",
-    "typing", "glitch", "system", "memory", "screen"
+    "typing", "glitch", "system", "memory", "screen","Chargoggagoggmanchauggagoggchaubunagungamaugg,"
 ];
 
 let currentWord = ""
