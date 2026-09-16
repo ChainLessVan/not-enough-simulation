@@ -118,7 +118,7 @@ function checkWord () {
 
         setTimeout(() => {
             box.classList.remove("flash-wrong");
-        }, 200);
+        }, 700);
 
         
         document.getElementById("typeInput").value = "";

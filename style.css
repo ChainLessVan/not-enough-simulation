@@ -127,6 +127,14 @@ body {
   100% {background-color: transparent;}
 }
 
+#typeInput {
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 10px;
+  
+}
+
 #settings {
   display: flex;
   justify-content: center;
