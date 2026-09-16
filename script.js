@@ -1,12 +1,14 @@
 
-function opengame() {
+//opening stuff
+function opengames() {
+    document.getElementById("main_menu").style.display = "none";
+    document.getElementById("gameMenu").style.display = "block";
+}
+
+function opentyperace() {
+    alert("WARNING: This game may not be suitable for people with epilepsy.")
     document.getElementById("main_menu").style.display = "none";
     document.getElementById("gameArea").style.display = "block";
-
-    document.getElementById("gameArea").innerHTML = `
-    <h2>this is game </h2>
-    <p> just test </p>
-    `;
 }
 
 function opensettings() {
@@ -25,4 +27,10 @@ function opensettings() {
                 console.log("Back to main menu from settings");
             });
         });
+}
+
+//going back on stuff
+function back1() {
+    document.getElementById("gameMenu").style.display = "none";
+    document.getElementById("main_menu").style.display = "block"
 }
