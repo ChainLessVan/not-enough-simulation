@@ -101,6 +101,7 @@ body {
 }
 
 #speedtype {
+  margin-top: 20vw;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -108,6 +109,22 @@ body {
   padding-top: 40px;
   width: 100%;
   height: 100vh;
+}
+
+#typeInput {
+  width: 200px;
+  padding: 10px;
+  font-size:22px;
+
+}
+/*this is for type box in speedtype flash red when wrong*/
+.flash-wrong {
+  animation: flashRed 0.7s;
+}
+
+@keyframes flashRed {
+  0% {background-color: #ff4f3e ;}
+  100% {background-color: transparent;}
 }
 
 #settings {

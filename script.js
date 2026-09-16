@@ -85,7 +85,11 @@ function startSpeedtype() {
     document.getElementById("typeInput").value = "";
     document.getElementById("typeInput").focus();
 
-document.getElementById("typeInput").addEventListener("input",checkWord);
+document.getElementById("typeInput").addEventListener("keydown",(event) =>{
+    if(event.key === "Enter") {
+        checkWord();
+    }
+});
 }
 
 function newWord() {
@@ -101,6 +105,22 @@ function checkWord () {
         score++;
         document.getElementById("score").textContent = "Score: " + score;
 
+        timeLeft = 10;
+
+        document.getElementById("timer").textContent = "Time:" + timeLeft;
+
+        document.getElementById("typeInput").value = "";
+        newWord();
+    } else {
+        const box = document.getElementById("typeInput");
+
+        box.classList.add("flash-wrong");
+
+        setTimeout(() => {
+            box.classList.remove("flash-wrong");
+        }, 200);
+
+        
         document.getElementById("typeInput").value = "";
         newWord();
     }
