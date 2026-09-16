@@ -19,8 +19,6 @@
 
 
 
-
-
 /* btns */
 .homeButton {
     border-radius: 25%;
@@ -28,6 +26,10 @@
     background-color: blanchedalmond;
     padding: 12px;
     font-family: "Rubik Spray Paint", system-ui;
+}
+
+.homeButton:hover {
+  background-color: rgb(150, 138, 120);
 }
 
 .homeButtonDiv {
@@ -48,10 +50,14 @@
 } 
 
 
+/* pops, menus ect */
+
 
 
 /* decoration */
-
+body {
+  background-color: wheat;
+}
 
 
 
@@ -63,11 +69,6 @@
   width: fit-content;
 }
 
-.movingText {
-  background-color: red; 
-}
-
-
 
 /*text*/
 .title1 {
@@ -77,14 +78,21 @@
 }
 
 .flash {
-  animation: flashin 5.5s linear infinite;
   background-color: brown;
   padding: 0;
 }
 
 .falshingText {
   margin: 0;
-  font-family: "Permanent Marker", cursive;
+  font-family: "Permanent Marker";
+}
+
+.movingText {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: auto;
+  border-top: 4px solid #0c0c0c;
 }
 
 #gameArea {
@@ -105,11 +113,5 @@
   55% { transform: translate(-3px, 5px) rotate(2deg); }
   75% { transform: translateX(5px)}
   100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-@keyframes flashin {
-  50% { opacity: 0}
-  66% { opacity: 1}
-  90% {opacity: 0}
 }
 
