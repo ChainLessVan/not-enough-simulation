@@ -8,6 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rubik+Glitch&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -25,7 +28,6 @@
         <div class="homeButtonDiv"><button class="homeButton" onclick="opengames()">PLAY</button></div>
         <div class="homeButtonDiv"> <button class="homeButton" onclick="opensettings()"> SETTINGS</button></div>
     </div>
-
 
 
     <div id="speedtype" style="display:none;">
@@ -46,14 +48,12 @@
 
 
 
-
-
     <div id="settings" style="display:none;">
         <span>
-            <h2> Settings </h2>
+            <h2 class="Text">Settings</h2>
             <div class="VolumeSlider">
                 <input type="range" id="volumeControl" min="0" max="100" value="50">
-                <p> Volume </p>
+                <p class="Text">Volume</p>
             </div>
             <button class="return" onclick="returnFromSettings()"> Back </button>
         </span>
@@ -61,18 +61,16 @@
 
 
 
-
-
-
-
-
     <div id="gameMenu" style="display:none;">
-        <span>
+        <span style="padding: auto;">
             <h2 class="title2">Select your game.</h2>
-            <button class="homeButton" onclick="opentyperace()"> Speedtyper </button>
+            <div class="gamesContainer">
+                <h2 class="gamesText">Typeracer</h2>
+                <p class="gameDescription">A normal typing game, or is it?</p>
+                <p class="gameDescription"><strong>WARNING: EPYLEPSY</strong></p>
+                <button class="enterGame" onclick="opentyperace()">Enter</button>
+            </div>
             <button class="return" onclick="back1()">Back</button>
-
-
         </span>
     </div>
 
@@ -83,6 +81,13 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
