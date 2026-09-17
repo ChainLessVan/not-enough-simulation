@@ -17,18 +17,25 @@
   font-style: normal;
 }
 
+.press-start-2p-regular {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 
 /* btns */
 .homeButton {
-    border-radius: 25%;
-    border-color: darkgoldenrod;
-    background-color: blanchedalmond;
+    border-radius: 0%;
+    border: solid;
+    border-color: white;
+    background-color: rgb(219, 193, 151);
     padding: 12px;
-    font-family: "Rubik Spray Paint", system-ui;
+    font-family: "Press Start 2P", system-ui;
 }
 
-.homeButton:hover {
+.homeButton:hover, .return:hover {
   background-color: rgb(150, 138, 120);
 }
 
@@ -40,44 +47,80 @@
   margin-bottom: 10px;
 }
 
-
 .return {
   position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  border-radius: 25%;
-  border-color: darkgoldenrod;
-  background-color: blanchedalmond;
+  border-radius: 0;
+  border: solid;
+  border-color: rgb(253, 253, 252);
+  background-color: rgb(219, 193, 151);
   padding: 12px;
-  font-family: "Rubik Spray Paint", system-ui;
-} 
+  font-family: "Press Start 2P", system-ui;
+}
+
+/*Divs, footers, headers ect.*/
+.gamesContainer {
+  border: solid white;
+  border-radius: 0;
+  padding: 5px;
+  background-color: rgba(128, 128, 128, 0.555);
+  width: fit-content;
+}
+
+.gamesText {
+  color: #b8a5a5;
+  font-family: "Press Start 2P", system-ui;
+  margin-top: 0;
+}
+
+.gameDescription {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 10px;
+}
+
+.enterGame { /* button */
+  margin-left: auto;
+  margin-right: 10px;
+  border-radius: 0%;
+  border: solid;
+  border-color: white;
+  background-color: rgb(219, 193, 151);
+  padding: 12px;
+  font-family: "Press Start 2P", system-ui;
+}
 
 
 /* pops, menus ect */
-
 #gameMenu {
-  margin-top: 20vw;
+  margin-top: 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 20px;
   width: 100%;
-  height: 100vh;
+  min-height: 1000px;
 }
+
+
 
 /* decoration */
 body {
-  background-color: wheat;
+  background-color: rgb(157, 95, 66);
 }
 
 
 
 /* textboxes */
 .title1Div {
-  padding-top: 60px;
+  background-color: #0c0c0c;
+  margin-top: 60px;
+  margin-bottom: 100px;
+  padding: 10px;
+  border: white 3px solid;
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
@@ -86,9 +129,14 @@ body {
 
 /*text*/
 .title1 {
-  transform: rotate(15deg);
-  font-family: "Rubik Glitch", system-ui;
-  animation: glitch 0.1s infinite;
+  font-family: "Press Start 2P", system-ui;
+  color: #b8a5a5;
+}
+
+.title2 {
+  font-family: "Press Start 2P", system-ui;
+  margin: 0 auto 20px;
+  text-align: center;
 }
 
 .flash {
@@ -109,6 +157,15 @@ body {
   border-top: 4px solid #0c0c0c;
 }
 
+.Text {
+  font-family: "Press Start 2P", system-ui;
+}
+
+/*settings*/
+
+
+
+/* speed typin */
 #speedtype {
   margin-top: 20vw;
   display: flex;
@@ -126,8 +183,8 @@ body {
   font-size:22px;
 
 }
-/*this is for type box in speedtype flash red when wrong*/
-.flash-wrong {
+
+.flash-wrong { /*this is for type box in speedtype flash red when wrong*/
   animation: flashRed 0.7s;
 }
 
@@ -187,13 +244,6 @@ body {
   50% { color: black; }
   100% { color: #ff4f3e;}
 }
-
-
-
-
-
-
-
 
 
 
