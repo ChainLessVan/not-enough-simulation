@@ -112,14 +112,14 @@ function checkWord () {
         document.getElementById("typeInput").value = "";
         newWord();
     } else {
+        FlashWrong();
         const box = document.getElementById("typeInput");
-
         box.classList.add("flash-wrong");
 
         setTimeout(() => {
             box.classList.remove("flash-wrong");
         }, 700);
-
+        
         
         document.getElementById("typeInput").value = "";
         newWord();
@@ -130,4 +130,19 @@ function checkWord () {
 function endGame() {
     alert("Thats all your time! your score is......" + score)
     returnFromType();
+}
+
+function FlashWrong() {
+    const box = document.getElementById("WrongFlash");
+    box.classList.remove("WrongFlash")
+    box.style.display = "block";
+
+    void box.offsetWidth;
+
+    box.classList.add("WrongFlash")
+    setTimeout(() => {
+        box.style.display = "none";
+        box.classList.remove("WrongFlash");
+    },500);
+
 }

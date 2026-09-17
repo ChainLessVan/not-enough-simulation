@@ -57,7 +57,16 @@
 
 /* pops, menus ect */
 
-
+#gameMenu {
+  margin-top: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  padding-top: 40px;
+  width: 100%;
+  height: 100vh;
+}
 
 /* decoration */
 body {
@@ -122,10 +131,7 @@ body {
   animation: flashRed 0.7s;
 }
 
-@keyframes flashRed {
-  0% {background-color: #ff4f3e ;}
-  100% {background-color: transparent;}
-}
+
 
 #typeInput {
   background-color: transparent;
@@ -145,6 +151,22 @@ body {
   height: 100vh;
 }
 
+#wrongFlashPlacement {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%) rotate(-45deg);
+}
+
+#WrongFlash {
+  display: none;
+  font-size: 150px;
+  color: #ff4f3e;
+}
+
+.WrongFlash {
+  animation: glitch 0.5s, WrongRed 0.5s;
+}
 
 /* frames */
 @keyframes glitch{
@@ -154,4 +176,30 @@ body {
   75% { transform: translateX(5px)}
   100% { transform: translate(0, 0) rotate(0deg); }
 }
+
+@keyframes flashRed {
+  0%{background-color: #ff4f3e ;}
+  100%{background-color: transparent;}
+}
+
+@keyframes WrongRed {
+  0% { color: #ff4f3e; }
+  25% { color: black; }
+  50% { color: green; }
+  100% { color: #ff4f3e;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
