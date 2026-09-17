@@ -50,12 +50,16 @@
 
     <div id="settings" style="display:none;">
         <span>
-            <h2 class="Text">Settings</h2>
-            <div class="VolumeSlider">
-                <input type="range" id="volumeControl" min="0" max="100" value="50">
-                <p class="Text">Volume</p>
+            <div class="settingsBox">
+                <h2 class="Text">Settings</h2>
+                <span class="VolumeSlider">
+                    <div class="volumeBox">
+                        <p class="Text">Volume</p>
+                    </div>
+                    <input type="range" id="volumeControl" min="0" max="100" value="50"> /*we can add some extra values later */
+                </span>
+                <button class="return" onclick="returnFromSettings()">Back</button>
             </div>
-            <button class="return" onclick="returnFromSettings()"> Back </button>
         </span>
     </div>
 
@@ -81,10 +85,6 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
 
 
 
