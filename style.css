@@ -184,8 +184,7 @@ body {
 
 @keyframes WrongRed {
   0% { color: #ff4f3e; }
-  25% { color: black; }
-  50% { color: green; }
+  50% { color: black; }
   100% { color: #ff4f3e;}
 }
 
