@@ -162,7 +162,22 @@ body {
 }
 
 /*settings*/
+.settingsBox {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  background-color: purple;
+  border: solid green 5px;
+  padding: 15px;
+}
 
+.volumeBox {
+  display: inline-block;
+  padding: 5px;
+  width: fit-content;
+  border: solid green 5px;
+  background-color: purple;
+}
 
 
 /* speed typin */
@@ -244,8 +259,6 @@ body {
   50% { color: black; }
   100% { color: #ff4f3e;}
 }
-
-
 
 
 
