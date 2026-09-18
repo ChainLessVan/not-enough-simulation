@@ -257,23 +257,6 @@ body {
   height: 100vh;
 }
 
-#wrongFlashPlacement {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -70%) rotate(-45deg);
-}
-
-#WrongFlash {
-  display: none;
-  font-size: 150px;
-  color: #ff4f3e;
-}
-
-.WrongFlash {
-  animation: glitch 0.5s, WrongRed 0.5s;
-}
-
 /* frames */
 @keyframes glitch{
   0% { transform: translate(0, 0) rotate(0deg); }
@@ -293,19 +276,6 @@ body {
   89% {transform: translate(-3px) rotate(1deg);}
   92% {color: #ea12d8;}
 }
-
-@keyframes flashRed {
-  0%{background-color: #ff4f3e ;}
-  100%{background-color: transparent;}
-}
-
-@keyframes WrongRed {
-  0% { color: #ff4f3e; }
-  50% { color: black; }
-  100% { color: #ff4f3e;}
-}
-
-
 
 
 

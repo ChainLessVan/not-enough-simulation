@@ -40,7 +40,9 @@ function returnFromType() {
     music.play();
 
     textContainer.innerHTML = "";
-    resultsContainer.sytle.display = "none";
+    resultsContainer.style.display = "none";
+
+    document.getElementById("resultsContainer").style.display = "none";
 }
 
 
@@ -61,11 +63,15 @@ function opentyperace() {
 
 //this will be the new text game
 function startTypingGame() {
+    textContainer.style.display = "block";
+    resultsContainer.style.display = "none";
+    //keys that wont counts
     const invalidKeys = 'F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12 Escape Tab CapsLock Shift Control Alt Meta ArrowLeft ArrowRight ArrowDown ArrowUp Enter'.split(' ');
-
+    //the sentence that u type out,im gonna make an array to store multiple
     const text = 'Hello there! I hope your day is going well...';
-
+    //splits the sentence into an array of indiviual letters
     const textArr = text.split('');
+    //gives the individual letters an id so can interact with it by colour
     const htmlArr = textArr.map((item, index) => {
         if (item === ' ') {
             return `<span class="space" id="span${index}">${item}</span>`;
@@ -73,6 +79,7 @@ function startTypingGame() {
         return `<span class="char" id="span${index}">${item}</span>`;
     });
 
+    //after split it combines back into a sentence to print out
     textContainer.innerHTML = htmlArr.join('');
 
     let errors = [];
@@ -82,46 +89,61 @@ function startTypingGame() {
     let currentTime = 0;
     let repeat;
 
+    //detect typing
     document.addEventListener('keydown', event => {
         if (event.key === ' ') event.preventDefault();
 
+        //starts timer
         if (firstTime) {
             firstTime = false;
             repeat = setInterval(() => currentTime++, 1000);
         }
 
+        //check if key is from main keyboard
         if (event.location === 0 && !invalidKeys.includes(event.key)) {
             handleKey(event.key);
         }
     });
 
+    
     function handleKey(key) {
-        let span = document.getElementById(`span${currentPos}`).style;
 
+        //gets the current letter by their span id
+        let span = document.getElementById(`span${currentPos}`).style;
+        //only allows typing if theres no mistake
         if (!backspaceNeeded) {
+            //check key with the letter typed,currentPos is the letter it is on 
             if (key === textArr[currentPos]) {
                 span.color = 'green';
                 currentPos++;
             } else {
+
+                //makes red space
                 if (textArr[currentPos] === ' ') {
                     span.backgroundColor = 'red';
                 } else {
+                    //makes red letter
                     span.color = 'red';
                 }
+                
                 backspaceNeeded = true;
+                //add the char the player got wrong
                 errors.push(textArr[currentPos]);
             }
         } else {
             if (event.key === 'Backspace') {
                 if (textArr[currentPos] === ' ') {
+                    //if the area that was wrong was a space it turns it from red to transparent
                     span.backgroundColor = 'transparent';
                 } else {
+                    //same thing turns the wrong back from red to black
                     span.color = 'black';
                 }
+                //allows typing 
                 backspaceNeeded = false;
             }
         }
-
+        //checks if the position the letters are at is the same length as the text/string
         if (currentPos === textArr.length) {
             clearInterval(repeat);
             handleEnd();
@@ -138,7 +160,7 @@ function startTypingGame() {
         accuracyText.innerHTML = `${accuracy}%`;
         timeText.innerHTML = `${minutes} m ${seconds} s`;
 
-        main.style.display = 'none';
-        resultsContainer.style.display = 'block';
+        textContainer.style.display = "none";
+        document.getElementById("resultsContainer").style.display = "block" ;
     }
 }
