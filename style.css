@@ -156,7 +156,7 @@ body {
   animation-iteration-count: infinite;
 }
 
-.title1.glitch {
+.glitch {
   animation: glitch 0.1s infinite;
   display: inline-block;
 }
@@ -196,6 +196,11 @@ body {
 }
 
 /* Thhe text glitchingin */
+.glitch1, .glitch2, .glitch3, .glitch4 {
+  opacity: 0;
+  font-family: "Press Start 2P", system-ui;
+  font-size: medium;
+}
 .glitch1 {
   transform: rotate(-5deg);
 }
@@ -207,6 +212,11 @@ body {
 
 .glitch3 {
   transform: rotate(30deg)
+}
+
+.glitch4 {
+  transform: rotate(4deg);
+  float: right
 }
 
 
@@ -291,5 +301,7 @@ body {
   89% {transform: translate(-3px) rotate(1deg);}
   92% {color: #ea12d8;}
 }
+
+
 
 
