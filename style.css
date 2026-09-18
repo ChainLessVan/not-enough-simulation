@@ -109,7 +109,7 @@
 
 /* decoration */
 body {
-  background-color: rgb(38, 35, 34);
+  background-color: rgb(40, 37, 36);
 }
 
 
@@ -195,6 +195,22 @@ body {
   font-family: "Press Start 2P", system-ui;
 }
 
+/* Thhe text glitchingin */
+.glitch1 {
+  transform: rotate(-5deg);
+}
+
+.glitch2 {
+  float: right;
+  transform: rotate(11deg)
+}
+
+.glitch3 {
+  transform: rotate(30deg)
+}
+
+
+
 /*settings*/
 .settingsBox {
   margin-left: auto;
@@ -238,13 +254,12 @@ body {
 }
 
 
-
 #typeInput {
-  background-color: transparent;
+  background-color: rgb(40, 37, 36);
   border: 2px solid white;
+  color: white;
   padding: 10px;
   font-size: 10px;
-  
 }
 
 #settings {
@@ -276,6 +291,5 @@ body {
   89% {transform: translate(-3px) rotate(1deg);}
   92% {color: #ea12d8;}
 }
-
 
 
