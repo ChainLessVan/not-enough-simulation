@@ -63,8 +63,11 @@ function opentyperace() {
 
 //this will be the new text game
 function startTypingGame() {
+    timeText.textContent = "0s";
     textContainer.style.display = "block";
     resultsContainer.style.display = "none";
+    liveTime.style.display = "block";
+    liveTime.textContent = "0";
     //keys that wont counts
     const invalidKeys = 'F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12 Escape Tab CapsLock Shift Control Alt Meta ArrowLeft ArrowRight ArrowDown ArrowUp Enter'.split(' ');
     //the sentence that u type out,im gonna make an array to store multiple
@@ -96,7 +99,10 @@ function startTypingGame() {
         //starts timer
         if (firstTime) {
             firstTime = false;
-            repeat = setInterval(() => currentTime++, 1000);
+            repeat = setInterval(() => {
+                currentTime++;
+                liveTime.textContent = `${currentTime}s`;
+            }   , 1000);       
         }
 
         //check if key is from main keyboard
