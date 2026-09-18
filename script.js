@@ -5,25 +5,24 @@ function opengames() {
     document.getElementById("gameMenu").style.display = "block";
 }
 
-
-
 function opensettings() {
     document.getElementById("main_menu").style.display = "none";
     document.getElementById("settings").style.display = "block";
 }
 
+
+//going back on stuff
 function returnFromSettings() {
     document.getElementById("settings").style.display = "none";
     document.getElementById("main_menu").style.display = "block";
 }
 
-
-//going back on stuff
 function back1() {
     document.getElementById("gameMenu").style.display = "none";
     document.getElementById("main_menu").style.display = "block"
 }
 
+//music stuff
 const music = document.getElementById("MainMusic");
 music.volume = 0.5;
 music.play()
@@ -132,6 +131,7 @@ function endGame() {
     returnFromType();
 }
 
+//animations
 function FlashWrong() {
     const box = document.getElementById("WrongFlash");
     box.classList.remove("WrongFlash")
@@ -144,5 +144,18 @@ function FlashWrong() {
         box.style.display = "none";
         box.classList.remove("WrongFlash");
     },500);
+}
 
+
+const playButton = document.querySelector(".homeButton");
+const title = document.querySelector(".title1");
+
+if (playButton && title) {
+    playButton.addEventListener("mouseenter", () => {
+        title.classList.add("glitch");
+    });
+
+    playButton.addEventListener("mouseleave", () => {
+        title.classList.remove("glitch");
+    });
 }
