@@ -11,6 +11,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+ <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 <body>
@@ -29,16 +34,14 @@
 
     <div id="speedtype" style="display:none;">
         <span>
-            <h2>speedtyper</h2>
-            <p id="wordToType"></p>
+            <div id="textContainer"></div>
 
-            <input id="typeInput" type="text" placeholder="Type here">
-            <div id="wrongFlashPlacement">
-                <h3 id="WrongFlash" style="display: none;"> WRONG</h3>
+            <div id="resultsContainer" style="display:none;">
+                <h2>speedtyper</h2>
+                <p id="wpmText"></p>
+                <p id="accuracyText">Time: 10</p>
+                <p id="timeText">Score: 0</p>
             </div>
-            <h3 id="WrongFlash" style="display: none;"> WRONG</h3>
-            <p id="timer">Time: 10</p>
-            <p id="score">Score: 0</p>
             <button class="return" onclick="returnFromType()"> Back </button>
         </span>
     </div>
@@ -74,33 +77,14 @@
             <button class="return" onclick="back1()">Back</button>
         </span>
     </div>
-
-
-
-
-
+    
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -38,18 +38,12 @@ function returnFromType() {
     document.getElementById("gameMenu").style.display = "block";
 
     music.play();
+
+    textContainer.innerHTML = "";
+    resultsContainer.sytle.display = "none";
 }
 
 
-const words = [
-    "digital", "simulation", "keyboard", "speed", "future",
-    "typing", "glitch", "system", "memory", "screen","Chargoggagoggmanchauggagoggchaubunagungamaugg,"
-];
-
-let currentWord = ""
-let score = 0
-let timeLeft = 10;
-let timerInterval;
 
 function opentyperace() {
     music.pause();
@@ -57,105 +51,94 @@ function opentyperace() {
     document.getElementById("gameMenu").style.display = "none";
     document.getElementById("speedtype").style.display = "block";
 
-    startSpeedtype();
+    startTypingGame();
 }
 
-function startSpeedtype() {
-    score = 0;
-    timeLeft = 10;
-    clearInterval(timerInterval);
 
-    document.getElementById("score").textContent = "Score: " + score;
-    document.getElementById("timer").textContent = "Time: " + timeLeft;
 
-    newWord();
 
-    //This is the timer that drops per sec so you can add flashy stuff 
-    timerInterval = setInterval(() => {
-        timeLeft--;
-        document.getElementById("timer").textContent = "Time: " + timeLeft;
 
-        if(timeLeft <= 0) {
-            clearInterval(timerInterval);
-            endGame();
+
+//this will be the new text game
+function startTypingGame() {
+    const invalidKeys = 'F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12 Escape Tab CapsLock Shift Control Alt Meta ArrowLeft ArrowRight ArrowDown ArrowUp Enter'.split(' ');
+
+    const text = 'Hello there! I hope your day is going well...';
+
+    const textArr = text.split('');
+    const htmlArr = textArr.map((item, index) => {
+        if (item === ' ') {
+            return `<span class="space" id="span${index}">${item}</span>`;
         }
-    }, 1000);
-
-    document.getElementById("typeInput").value = "";
-    document.getElementById("typeInput").focus();
-
-document.getElementById("typeInput").addEventListener("keydown",(event) =>{
-    if(event.key === "Enter") {
-        checkWord();
-    }
-});
-}
-
-function newWord() {
-    currentWord = words[Math.floor(Math.random()* words.length)];
-    document.getElementById("wordToType").textContent = currentWord
-
-}
-
-function checkWord () {
-    const typed = document.getElementById("typeInput").value;
-
-    if(typed === currentWord) {
-        score++;
-        document.getElementById("score").textContent = "Score: " + score;
-
-        timeLeft = 10;
-
-        document.getElementById("timer").textContent = "Time:" + timeLeft;
-
-        document.getElementById("typeInput").value = "";
-        newWord();
-    } else {
-        FlashWrong();
-        const box = document.getElementById("typeInput");
-        box.classList.add("flash-wrong");
-
-        setTimeout(() => {
-            box.classList.remove("flash-wrong");
-        }, 700);
-        
-        
-        document.getElementById("typeInput").value = "";
-        newWord();
-    }
-
-}
-
-function endGame() {
-    alert("Thats all your time! your score is......" + score)
-    returnFromType();
-}
-
-//animations
-function FlashWrong() {
-    const box = document.getElementById("WrongFlash");
-    box.classList.remove("WrongFlash")
-    box.style.display = "block";
-
-    void box.offsetWidth;
-
-    box.classList.add("WrongFlash")
-    setTimeout(() => {
-        box.style.display = "none";
-        box.classList.remove("WrongFlash");
-    },500);
-}
-
-
-const playButton = document.querySelector(".homeButton");
-const title = document.querySelector(".title1");
-
-if (playButton && title) {
-    playButton.addEventListener("mouseenter", () => {
-        title.classList.add("glitch");
+        return `<span class="char" id="span${index}">${item}</span>`;
     });
 
-    playButton.addEventListener("mouseleave", () => {
-        title.classList.remove("glitch");
+    textContainer.innerHTML = htmlArr.join('');
+
+    let errors = [];
+    let firstTime = true;
+    let currentPos = 0;
+    let backspaceNeeded = false;
+    let currentTime = 0;
+    let repeat;
+
+    document.addEventListener('keydown', event => {
+        if (event.key === ' ') event.preventDefault();
+
+        if (firstTime) {
+            firstTime = false;
+            repeat = setInterval(() => currentTime++, 1000);
+        }
+
+        if (event.location === 0 && !invalidKeys.includes(event.key)) {
+            handleKey(event.key);
+        }
     });
+
+    function handleKey(key) {
+        let span = document.getElementById(`span${currentPos}`).style;
+
+        if (!backspaceNeeded) {
+            if (key === textArr[currentPos]) {
+                span.color = 'green';
+                currentPos++;
+            } else {
+                if (textArr[currentPos] === ' ') {
+                    span.backgroundColor = 'red';
+                } else {
+                    span.color = 'red';
+                }
+                backspaceNeeded = true;
+                errors.push(textArr[currentPos]);
+            }
+        } else {
+            if (event.key === 'Backspace') {
+                if (textArr[currentPos] === ' ') {
+                    span.backgroundColor = 'transparent';
+                } else {
+                    span.color = 'black';
+                }
+                backspaceNeeded = false;
+            }
+        }
+
+        if (currentPos === textArr.length) {
+            clearInterval(repeat);
+            handleEnd();
+        }
+    }
+
+    function handleEnd() {
+        let wpm = Math.floor(textArr.length / 5 / (currentTime / 60));
+        let accuracy = Math.floor(((textArr.length - errors.length) / textArr.length) * 100);
+        let minutes = Math.floor(currentTime / 60);
+        let seconds = currentTime - minutes * 60;
+
+        wpmText.innerHTML = `${wpm} wpm`;
+        accuracyText.innerHTML = `${accuracy}%`;
+        timeText.innerHTML = `${minutes} m ${seconds} s`;
+
+        main.style.display = 'none';
+        resultsContainer.style.display = 'block';
+    }
 }
