@@ -170,3 +170,16 @@ function startTypingGame() {
         document.getElementById("resultsContainer").style.display = "block" ;
     }
 }
+
+const playButton = document.querySelector(".homeButton");
+const title = document.querySelector(".title1");
+
+if (playButton && title) {
+    playButton.addEventListener("mouseenter", () => {
+        title.classList.add("glitch");
+    });
+
+    playButton.addEventListener("mouseleave", () => {
+        title.classList.remove("glitch");
+    });
+}
