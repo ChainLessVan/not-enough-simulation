@@ -11,22 +11,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
     <!--put everything inside the main_menu container for the main screen/starting menu -->
     <div id="main_menu">
         <audio id="MainMusic" src="MainMenuBackground.mp3" loop></audio>
-        <div class="title1Div"><h1 class="title1">too much simulation</h1></div>
-        <div class="movingText">
-            <marquee class="flash">
-                <p class="flashingText">
-                    DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - DID THE DIGITAL AGE RUIN YOU? - 
-                </p>
-            </marquee>
-        </div>
-        <div class="homeButtonDiv"><button class="homeButton" onclick="opengames()">PLAY</button></div>
+        <div class="title1Div"><h1 class="title1" id="target">too much simulation</h1></div>
+        <div class="homeButtonDiv"><button class="homeButton" onclick="opengames()" id="trigger">PLAY</button></div>
         <div class="homeButtonDiv"> <button class="homeButton" onclick="opensettings()"> SETTINGS</button></div>
+        <div class="footer">
+            <span><h2 class="whiteText">Made by h.i.</h2><h2 class="greenText">incorporated</h2></span>
+        </div>
     </div>
 
 
@@ -56,7 +53,7 @@
                     <div class="volumeBox">
                         <p class="Text">Volume</p>
                     </div>
-                    <input type="range" id="volumeControl" min="0" max="100" value="50"> /*we can add some extra values later */
+                    <input type="range" id="volumeControl" min="0" max="100" value="50"> <!--we add extra later-->
                 </span>
                 <button class="return" onclick="returnFromSettings()">Back</button>
             </div>
@@ -85,8 +82,6 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
 
 
 
