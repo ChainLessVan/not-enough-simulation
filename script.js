@@ -63,8 +63,10 @@ function opentyperace() {
     alert("WARNING: This game may not be suitable for people with epilepsy.")
     document.getElementById("gameMenu").style.display = "none";
     document.getElementById("speedtype").style.display = "block";
-
+    const distract1 = [];
+    distract1.push(document.getElementById("BOMB"));
     startTypingGame();
+    
 }
 
 
@@ -103,6 +105,7 @@ function startTypingGame() {
     //after split it combines back into a sentence to print out
     textContainer.innerHTML = htmlArr.join('');
 
+    let mistake = 0;
     let errors = [];
     let firstTime = true;
     let currentPos = 0;
@@ -179,13 +182,16 @@ function startTypingGame() {
         let accuracy = Math.floor(((textArr.length - errors.length) / textArr.length) * 100);
         let minutes = Math.floor(currentTime / 60);
         let seconds = currentTime - minutes * 60;
+        let mistakes = errors.length;
 
-        wpmText.innerHTML = `${wpm} wpm`;
-        accuracyText.innerHTML = `${accuracy}%`;
-        timeText.innerHTML = `${minutes} m ${seconds} s`;
+        wpmText.innerHTML = `your wpm is ${wpm} wpm`;
+        accuracyText.innerHTML = `your accuracy is ${accuracy}%`;
+        timeText.innerHTML = `You took ${minutes} m and ${seconds} s`;
+        mistakeText.innerHTML = `You made ${mistakes} mistakes`;
+        
 
         textContainer.style.display = "none";
-        document.getElementById("resultsContainer").style.display = "block" ;
+        resultsContainer.style.display = "block" ;
     }
 }
 

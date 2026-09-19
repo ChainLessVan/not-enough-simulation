@@ -265,6 +265,13 @@ body {
   color: #12a2ea;
 }
 
+.dancingStickman {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: auto;
+}
+
 .flash-wrong { /*this is for type box in speedtype flash red when wrong*/
   animation: flashRed 0.7s;
 }
@@ -279,6 +286,15 @@ body {
   color: white;
   padding: 10px;
   font-size: 10px;
+}
+
+#BOMB {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: -1;
 }
 
 #settings {
@@ -310,6 +326,14 @@ body {
   92% {color: #ea12d8;}
 }
 
+
+@keyframes BackgroundPulse {
+  0% {background-color: rgb(40, 37, 36);}
+  20% {background-color: rgb(1,642,57);}
+  30% {background-color: rgb(97, 195, 203);}
+  35% {background-color: rgb(40, 37, 36);}
+  100% {background-color: rgb(40, 37, 36);}
+}
 
 /* volume control */
 .volumeButton {
