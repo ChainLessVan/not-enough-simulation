@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 <head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,8 +19,8 @@
 <body>
 
     <!--put everything inside the main_menu container for the main screen/starting menu -->
-    <div id="main_menu">
-        <audio id="MainMusic" src="MainMenuBackground.mp3" loop></audio>
+    <div class="main_menu" id="main_menu">
+        <audio id="MainMusic" src="sounds/MainMenuBackground.mp3" loop></audio>
         <div class="title1Div"><h1 class="title1" id="target">too much simulation</h1></div>
         <div class="homeButtonDiv"><button class="homeButton" onclick="opengames()" id="trigger">PLAY</button></div>
         <div class="homeButtonDiv"> <button class="homeButton" onclick="opensettings()">SETTINGS</button></div>
@@ -31,7 +31,7 @@
 
         <div class="footer">
             <span><h2 class="whiteText">Made by h.i.</h2><h2 class="greenText">incorporated</h2></span>
-            <img src="volumeOn-20260919-153846.piskel" onclick="musicChange()">
+            <img src="images/volumeOn.png" onclick="musicChange()" class="musicToggle">
         </div>
     </div>
 
@@ -98,3 +98,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
