@@ -259,10 +259,17 @@ body {
 
 }
 
+.TeachSpeedType {
+  color: #12a2ea;
+}
+
 .flash-wrong { /*this is for type box in speedtype flash red when wrong*/
   animation: flashRed 0.7s;
 }
 
+#textContainer {
+  background-color: white;
+}
 
 #typeInput {
   background-color: rgb(40, 37, 36);

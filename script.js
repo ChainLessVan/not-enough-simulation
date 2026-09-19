@@ -61,7 +61,13 @@ function opentyperace() {
 
 
 //this will be the new text game
+
+function getRandomInt(max) {
+    return Math.floor(Math.random()*max);
+}
+
 function startTypingGame() {
+    const textContainer = document.getElementById("textContainer")
     timeText.textContent = "0s";
     textContainer.style.display = "block";
     resultsContainer.style.display = "none";
@@ -70,7 +76,8 @@ function startTypingGame() {
     //keys that wont counts
     const invalidKeys = 'F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12 Escape Tab CapsLock Shift Control Alt Meta ArrowLeft ArrowRight ArrowDown ArrowUp Enter'.split(' ');
     //the sentence that u type out,im gonna make an array to store multiple
-    const text = 'Hello there! I hope your day is going well...';
+    const textsentenceArr = ["Hello there! My name is verity,Im your personal assistent","This is a test","if your power is triple T"];
+    const text = textsentenceArr[getRandomInt(textsentenceArr.length)];
     //splits the sentence into an array of indiviual letters
     const textArr = text.split('');
     //gives the individual letters an id so can interact with it by colour
@@ -136,7 +143,7 @@ function startTypingGame() {
                 errors.push(textArr[currentPos]);
             }
         } else {
-            if (event.key === 'Backspace') {
+            if (key === 'Backspace') {
                 if (textArr[currentPos] === ' ') {
                     //if the area that was wrong was a space it turns it from red to transparent
                     span.backgroundColor = 'transparent';
