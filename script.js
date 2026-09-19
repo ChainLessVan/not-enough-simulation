@@ -26,11 +26,23 @@ const music = document.getElementById("MainMusic");
 music.volume = 0.5;
 music.play()
 
+
+function musicChange() {
+    if (music.volume > 0) {
+        musicOn = false;
+        music.volume = 0
+    } else {
+        music.volume = 0.5
+    }
+}
+
 const volumeSlider = document.getElementById("volumeControl");
 
 volumeSlider.addEventListener("input",() => {
     music.volume =volumeSlider.value/100;
 })
+
+
 
 function returnFromType() {
     document.getElementById("speedtype").style.display = "none";
@@ -190,7 +202,6 @@ trigger.addEventListener("mouseenter", () => {
     })
     targets.forEach(el => el.classList.add("glitch"));
 });
-
 trigger.addEventListener("mouseleave", () => {
     title.classList.remove("glitch")
     targets.forEach(el => el.classList.remove("glitch"));
@@ -198,5 +209,7 @@ trigger.addEventListener("mouseleave", () => {
         el.style.opacity = "0";
     })
 });
+
+
 
 
