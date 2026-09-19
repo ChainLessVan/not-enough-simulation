@@ -314,7 +314,6 @@ body {
 /* volume control */
 .volumeButton {
   height: auto;
-  background-color: aqua;
   float: right;
 }
 
