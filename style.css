@@ -92,6 +92,10 @@
   font-family: "Press Start 2P", system-ui;
 }
 
+.main_menu {
+  margin: 0;
+}
+
 
 /* pops, menus ect */
 #gameMenu {
