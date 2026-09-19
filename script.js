@@ -23,16 +23,18 @@ function back1() {
 
 //music stuff
 const music = document.getElementById("MainMusic");
+const musicChanger = document.querySelector(".musicToggle")
 music.volume = 0.5;
 music.play()
 
 
 function musicChange() {
     if (music.volume > 0) {
-        musicOn = false;
         music.volume = 0
+        musicChanger.src = "images/volumeOff.png"
     } else {
         music.volume = 0.5
+        musicChanger.src = "images/volumeOn.png"
     }
 }
 
@@ -215,6 +217,14 @@ trigger.addEventListener("mouseleave", () => {
         el.style.opacity = "0";
     })
 });
+
+
+
+
+
+
+
+
 
 
 
