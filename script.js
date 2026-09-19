@@ -217,19 +217,3 @@ trigger.addEventListener("mouseleave", () => {
         el.style.opacity = "0";
     })
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -114,6 +114,7 @@
 /* decoration */
 body {
   background-color: rgb(40, 37, 36);
+  overflow: hidden;
 }
 
 
@@ -125,6 +126,17 @@ body {
   margin-bottom: 100px;
   padding: 10px;
   border: white 3px solid;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
+.title2Div {
+  background-color: #b8a5a5;
+  margin-top: 60px;
+  margin-bottom: 70px;
+  padding: 10px;
+  border: rgb(0, 0, 0) 3px solid;
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
@@ -173,26 +185,7 @@ body {
 
 .title2 {
   font-family: "Press Start 2P", system-ui;
-  margin: 0 auto 20px;
-  text-align: center;
-}
-
-.flash {
-  background-color: brown;
-  padding: 0;
-}
-
-.falshingText {
-  margin: 0;
-  font-family: "Permanent Marker";
-}
-
-.movingText {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: auto;
-  border-top: 4px solid #0c0c0c;
+  color: #1b1a1a;
 }
 
 .Text {
@@ -232,8 +225,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
-  background-color: purple;
-  border: solid green 5px;
+  background-color: rgb(0, 0, 0);
+  border: solid rgb(255, 255, 255) 5px;
   padding: 15px;
 }
 
@@ -241,8 +234,8 @@ body {
   display: inline-block;
   padding: 5px;
   width: fit-content;
-  border: solid green 5px;
-  background-color: purple;
+  border: solid rgb(42, 42, 34) 5px;
+  background-color: rgb(255, 255, 255);
 }
 
 
@@ -345,3 +338,7 @@ body {
   float: right;
 }
 
+.musicToggle {
+  float: right;
+  height: 60px;
+}
