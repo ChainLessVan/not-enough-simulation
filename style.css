@@ -61,6 +61,15 @@
   font-family: "Press Start 2P", system-ui;
 }
 
+.returnFromGame {
+  float: right;
+  background-color: #1b1a1a;
+  border: #b8a5a5 solid;
+  left: 5px;
+  bottom: 5px;
+  position: absolute;
+}
+
 /*Divs, footers, headers ect.*/
 .gamesContainer {
   border: solid white;
@@ -68,6 +77,7 @@
   padding: 5px;
   background-color: rgba(128, 128, 128, 0.555);
   width: fit-content;
+  margin: auto;
 }
 
 .gamesText {
@@ -86,10 +96,14 @@
   margin-right: 10px;
   border-radius: 0%;
   border: solid;
-  border-color: white;
-  background-color: rgb(219, 193, 151);
+  border-color: rgb(154, 121, 149);
+  background-color: rgb(44, 42, 41);
   padding: 12px;
   font-family: "Press Start 2P", system-ui;
+}
+
+.enterGame:hover {
+  background-color: rgb(171, 68, 97);
 }
 
 .main_menu {
@@ -192,6 +206,12 @@ body {
   font-family: "Press Start 2P", system-ui;
 }
 
+.scenesText {
+  font-family: "Press Start 2P", system-ui;
+  color: #b8a5a5;
+  font-size: small;
+}
+
 /* Thhe text glitchingin */
 .glitch1, .glitch2, .glitch3, .glitch4 {
   margin: 20px;
@@ -200,7 +220,7 @@ body {
   font-size: medium;
 }
 .glitch1 {
-  float: right;
+
   transform: rotate(-5deg);
 }
 
@@ -210,6 +230,7 @@ body {
 }
 
 .glitch3 {
+  float: right;
   transform: rotate(30deg)
 }
 
@@ -230,9 +251,10 @@ body {
   padding: 15px;
 }
 
-.volumeBox {
+.settingsDiv {
+  margin: 5px;
   display: inline-block;
-  padding: 5px;
+  padding: 3px;
   width: fit-content;
   border: solid rgb(42, 42, 34) 5px;
   background-color: rgb(255, 255, 255);
