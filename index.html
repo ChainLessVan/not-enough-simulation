@@ -24,10 +24,10 @@
         <div class="title1Div"><h1 class="title1" id="target">too much simulation</h1></div>
         <div class="homeButtonDiv"><button class="homeButton" onclick="opengames()" id="trigger">PLAY</button></div>
         <div class="homeButtonDiv"> <button class="homeButton" onclick="opensettings()">SETTINGS</button></div>
-        <h1 class="glitch3 target">This text is cool and glitchy</h1>
-        <h1 class="glitch1 target">Chat im cooked, we know.</h1>
-        <h1 class="glitch2 target">"Your tech may be powerful but dont misuse it"</h1>
-        <h1 class="glitch4 target">Wow, your attention span is zero.</h1>
+        <h1 class="glitch4 target">(whoe's attention span is definetly not zero)</h1>
+        <h1 class="glitch1 target">Estimated time: 20 mins</h1>
+        <h1 class="glitch2 target">"By neyv and ducky!"</h1>
+        <h1 class="glitch3 target">Ok you really should stop staring at this text.</h1>
 
         <div class="footer">
             <span><h2 class="whiteText">Made by h.i.</h2><h2 class="greenText">incorporated</h2></span>
@@ -53,7 +53,7 @@
                 <p id="timeText"></p>
                 <p id="mistakeText"></p>
             </div>
-            <button class="return" onclick="returnFromType()"> Back </button>
+            <button class="returnFromGame" onclick="returnFromType()"><p class="scenesText">Back</p></button>
         </div>
     </div>
 
@@ -62,12 +62,16 @@
     <div id="settings" style="display:none;">
         <span>
             <div class="settingsBox">
-                <h2 class="Text">Settings</h2>
+                <h2 class="title1">Settings</h2>
                 <span class="VolumeSlider">
-                    <div class="volumeBox">
+                    <div class="settingsDiv">
                         <p class="Text">Volume</p>
                     </div>
                     <input type="range" id="volumeControl" min="0" max="100" value="50"> <!--we add extra later-->
+                </span> <br>
+                <span class="epilepsy">
+                    <div class="settingsDiv"><p class="Text">Epilepsy Mode</p></div>
+                    <div class="settingsDiv"><p class="Text">OFF</p></div>
                 </span>
                 <button class="return" onclick="returnFromSettings()">Back</button>
             </div>
@@ -79,17 +83,24 @@
     <div id="gameMenu" style="display:none;">
         <span style="padding: auto;">
             <div class="title2Div"><h2 class="title2">Select your stage.</h2></div>
-            <div class="gamesContainer">
-                <h2 class="gamesText">Stage one:Typeracer</h2>
-                <p class="gameDescription">A normal typing game, or is it?</p>
-                <p class="gameDescription"><strong>WARNING: EPYLEPSY</strong></p>
-                <button class="enterGame" onclick="opentyperace()">Enter</button>
-            </div>
+                <div class="gamesContainer">
+                    <h2 class="gamesText">Stage one: Typeracer</h2>
+                    <p class="gameDescription">Ah a normal typing game, or is it??</p>
+                    <p class="gameDescription"><strong>WARNING: MAY NOT BE SUITABLE FOR EPYLEPSY</strong></p>
+                    <button class="enterGame" onclick="opentyperace()">Enter</button>
+                </div>
             <button class="return" onclick="back1()">Back</button>
         </span>
     </div>
-    
-      
+
+
+
+    <!--scenes-->
+    <div id="scene1" style="display: none;">
+        <div class="scene1Div">
+            <h2 class="scenesText">Nowerdays, too many people can't find a place to do feel like their life is a total misery, But none of this was an issue if you compare these studies with simmilar ones, from the early 2000s you will sence a major difference in figures, but why?</h2>
+        </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -98,4 +109,6 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
 
