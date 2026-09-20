@@ -59,14 +59,17 @@ function returnFromType() {
 }
 
 
-
+const distract1 = [];
 function opentyperace() {
     music.pause();
     alert("WARNING: This game may not be suitable for people with epilepsy.")
     document.getElementById("gameMenu").style.display = "none";
     document.getElementById("speedtype").style.display = "block";
-    const distract1 = [];
     distract1.push(document.getElementById("BOMB"));
+    for (let i = 0; i < distract1.length; i++){
+        distract1[i].style.display = "none";
+    }
+    
     startTypingGame();
     
 }
@@ -118,7 +121,11 @@ function startTypingGame() {
     //detect typing
     document.addEventListener('keydown', event => {
         if (event.key === ' ') event.preventDefault();
-
+            if (currentPos === Math.floor(textArr.length/5)) {
+                for (let i = 0; i < distract1.length; i++){
+                    distract1[i].style.display = "block";
+                }
+            }
         //starts timer
         if (firstTime) {
             firstTime = false;
@@ -194,6 +201,9 @@ function startTypingGame() {
 
         textContainer.style.display = "none";
         resultsContainer.style.display = "block" ;
+        for (let i = 0; i < distract1.length; i++){
+            distract1[i].style.display = "none";
+        }
     }
 }
 
