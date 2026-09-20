@@ -62,7 +62,6 @@ function returnFromType() {
 const distract1 = [];
 function opentyperace() {
     music.pause();
-    alert("WARNING: This game may not be suitable for people with epilepsy.")
     document.getElementById("gameMenu").style.display = "none";
     document.getElementById("speedtype").style.display = "block";
     distract1.push(document.getElementById("BOMB"));
