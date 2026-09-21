@@ -307,6 +307,19 @@ body {
   font-size: 10px;
 }
 
+#Typingline {
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background: black;
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  50% {opacity: 0;}
+}
+
+
 #BOMB {
   position: absolute;
   margin: auto;
