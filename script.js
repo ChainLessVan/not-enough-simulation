@@ -22,27 +22,46 @@ function back1() {
 }
 
 //music stuff
-const music = document.getElementById("MainMusic");
 const musicChanger = document.querySelector(".musicToggle")
-music.volume = 0.5;
+//music and sfx
+const music = document.getElementById("MainMusic");
+const explosionSFX = document.getElementById("Explosion")
+const unlock = document.getElementById("UnlockingSound")
+
+const Sounds = [music,explosionSFX,unlock];
+//this is to refresh the sounds so sounds can be heard used in line 78
+let Audios = false;
+
 music.play()
 
-
-function musicChange() {
-    if (music.volume > 0) {
-        music.volume = 0
-        musicChanger.src = "images/volumeOff.png"
-    } else {
-        music.volume = 0.5
-        musicChanger.src = "images/volumeOn.png"
-    }
-}
-
+let vol = 0.5;
+let lastvol = 0.5;
 const volumeSlider = document.getElementById("volumeControl");
 
+//links all the sounds and allows to mute/unmute all at the same time
 volumeSlider.addEventListener("input",() => {
-    music.volume =volumeSlider.value/100;
+     vol = volumeSlider.value/100;
+    lastvol = vol;
+    Sounds.forEach(sound => {
+        sound.volume = vol;
+    })
 })
+
+function musicChange() {
+    if (Sounds[0].volume > 0) {
+        lastvol = vol;
+        Sounds.forEach(sound => sound.volume = 0);
+        musicChanger.src = "images/volumeOff.png"
+    } else {
+        vol = lastvol;
+        Sounds.forEach(sound => sound.volume = vol)
+        musicChanger.src = "images/volumeOn.png"
+        }
+    }   
+    volumeSlider.value = vol*100;
+
+
+
 
 
 
@@ -67,6 +86,10 @@ function opentyperace() {
     distract1.push(document.getElementById("BOMB"));
     for (let i = 0; i < distract1.length; i++){
         distract1[i].style.display = "none";
+    }
+    if (!Audios) {
+        unlock.play().catch(() => {});
+        Audios = true;
     }
     
     startTypingGame();
@@ -123,6 +146,7 @@ function startTypingGame() {
             if (currentPos === Math.floor(textArr.length/5)) {
                 for (let i = 0; i < distract1.length; i++){
                     distract1[i].style.display = "block";
+                explosionSFX.play();
                 }
             }
         //starts timer
