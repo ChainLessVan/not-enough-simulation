@@ -66,6 +66,7 @@ function musicChange() {
 
 
 function returnFromType() {
+    document.removeEventListener('keydown',keylistener);
     document.getElementById("speedtype").style.display = "none";
     document.getElementById("gameMenu").style.display = "block";
 
@@ -106,7 +107,7 @@ function opentyperace() {
 function getRandomInt(max) {
     return Math.floor(Math.random()*max);
 }
-
+let keylistener;
 function startTypingGame() {
     const textContainer = document.getElementById("textContainer")
     timeText.textContent = "0s";
@@ -141,13 +142,13 @@ function startTypingGame() {
     let repeat;
 
     //detect typing
-    document.addEventListener('keydown', event => {
+    keylistener = function(event) {
         if (event.key === ' ') event.preventDefault();
             if (currentPos === Math.floor(textArr.length/5)) {
                 for (let i = 0; i < distract1.length; i++){
                     distract1[i].style.display = "block";
-                explosionSFX.play();
                 }
+                explosionSFX.play();
             }
         //starts timer
         if (firstTime) {
@@ -162,8 +163,9 @@ function startTypingGame() {
         if (event.location === 0 && !invalidKeys.includes(event.key)) {
             handleKey(event.key);
         }
-    });
+    };
 
+    document.addEventListener('keydown',keylistener);
     
     function handleKey(key) {
 
@@ -210,6 +212,7 @@ function startTypingGame() {
     }
 
     function handleEnd() {
+        document.removeEventListener('keydown',keylistener);
         let wpm = Math.floor(textArr.length / 5 / (currentTime / 60));
         let accuracy = Math.floor(((textArr.length - errors.length) / textArr.length) * 100);
         let minutes = Math.floor(currentTime / 60);
