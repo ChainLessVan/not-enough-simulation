@@ -238,6 +238,7 @@ function startTypingGame() {
 const trigger = document.querySelector(".homeButton");
 const targets = document.querySelectorAll(".target");
 const title = document.querySelector(".title1")
+const scrollingText = document.querySelectorAll(".scrollText")
 
 trigger.addEventListener("mouseenter", () => {
     title.classList.add("glitch");
@@ -245,11 +246,16 @@ trigger.addEventListener("mouseenter", () => {
         el.style.opacity = "1";
     })
     targets.forEach(el => el.classList.add("glitch"));
-});
+    scrollingText.forEach(el => {
+      el.style.display = "block";
+})});
+
 trigger.addEventListener("mouseleave", () => {
     title.classList.remove("glitch")
     targets.forEach(el => el.classList.remove("glitch"));
     targets.forEach(el => {
         el.style.opacity = "0";
     })
-});
+    scrollingText.forEach(el => {
+      el.style.display = "none";
+})});
