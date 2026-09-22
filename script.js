@@ -27,8 +27,8 @@ const musicChanger = document.querySelector(".musicToggle")
 const music = document.getElementById("MainMusic");
 const explosionSFX = document.getElementById("Explosion")
 const unlock = document.getElementById("UnlockingSound")
-
-const Sounds = [music,explosionSFX,unlock];
+const TouchGrassSfx = document.getElementById("TouchGrass")
+const Sounds = [music,explosionSFX,unlock,TouchGrassSfx];
 //this is to refresh the sounds so sounds can be heard used in line 78
 let Audios = false;
 music.volume = 0.5;
