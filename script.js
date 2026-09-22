@@ -31,7 +31,7 @@ const unlock = document.getElementById("UnlockingSound")
 const Sounds = [music,explosionSFX,unlock];
 //this is to refresh the sounds so sounds can be heard used in line 78
 let Audios = false;
-
+music.volume = 0.5;
 music.play()
 
 let vol = 0.5;
@@ -109,6 +109,9 @@ function getRandomInt(max) {
 }
 let keylistener;
 function startTypingGame() {
+    //flashing typing line
+    const Typingline = document.getElementById("Typingline");
+    Typingline.style.display = "block";
     const textContainer = document.getElementById("textContainer")
     timeText.textContent = "0s";
     textContainer.style.display = "block";
@@ -132,6 +135,7 @@ function startTypingGame() {
 
     //after split it combines back into a sentence to print out
     textContainer.innerHTML = htmlArr.join('');
+    textContainer.appendChild(Typingline);
 
     let mistake = 0;
     let errors = [];
@@ -140,7 +144,13 @@ function startTypingGame() {
     let backspaceNeeded = false;
     let currentTime = 0;
     let repeat;
-
+    function UpdateTypingLinePos() {
+        const span = document.getElementById(`span${currentPos}`);
+        const rect = span.getBoundingClientRect();
+        const containerRect = textContainer.getBoundingClientRect();
+        Typingline.style.left = (rect.left - containerRect.left) + "px";
+        Typingline.style.top = (rect.bottom - containerRect.top) + "px";
+    }
     //detect typing
     keylistener = function(event) {
         if (event.key === ' ') event.preventDefault();
@@ -168,7 +178,7 @@ function startTypingGame() {
     document.addEventListener('keydown',keylistener);
     
     function handleKey(key) {
-
+        UpdateTypingLinePos();
         //gets the current letter by their span id
         let span = document.getElementById(`span${currentPos}`).style;
         //only allows typing if theres no mistake
@@ -212,6 +222,7 @@ function startTypingGame() {
     }
 
     function handleEnd() {
+        Typingline.style.display = "none";
         document.removeEventListener('keydown',keylistener);
         let wpm = Math.floor(textArr.length / 5 / (currentTime / 60));
         let accuracy = Math.floor(((textArr.length - errors.length) / textArr.length) * 100);
@@ -239,23 +250,21 @@ const trigger = document.querySelector(".homeButton");
 const targets = document.querySelectorAll(".target");
 const title = document.querySelector(".title1")
 const scrollingText = document.querySelectorAll(".scrollText")
-
 trigger.addEventListener("mouseenter", () => {
     title.classList.add("glitch");
     targets.forEach(el => {
         el.style.opacity = "1";
     })
     targets.forEach(el => el.classList.add("glitch"));
-    scrollingText.forEach(el => {
-      el.style.display = "block";
+        scrollingText.forEach(el => {
+        el.style.display = "block";
 })});
-
 trigger.addEventListener("mouseleave", () => {
     title.classList.remove("glitch")
     targets.forEach(el => el.classList.remove("glitch"));
     targets.forEach(el => {
         el.style.opacity = "0";
     })
-    scrollingText.forEach(el => {
-      el.style.display = "none";
+        scrollingText.forEach(el => {
+        el.style.display = "none";
 })});
