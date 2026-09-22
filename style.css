@@ -360,6 +360,14 @@ body {
   50% {opacity: 0;}
 }
 
+#grass {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 150px;
+  height: 150px;
+  padding: 150px;
+}
 
 #BOMB {
   position: absolute;
