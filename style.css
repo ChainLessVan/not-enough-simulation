@@ -312,6 +312,7 @@ body {
 }
 
 .TeachSpeedType {
+  position: relative;
   color: #12a2ea;
 }
 
@@ -359,14 +360,45 @@ body {
 @keyframes blink {
   50% {opacity: 0;}
 }
+.grass-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  top: 0;
+  left: 0;
+}
+
+#grassButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
 
 #grass {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  top: 0;
+  left: 0;
   width: 150px;
   height: 150px;
-  padding: 150px;
+  object-fit: cover;
+
+  z-index: 1;
+}
+
+#mail {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 30px;
+  height: 20px;
 }
 
 #BOMB {
