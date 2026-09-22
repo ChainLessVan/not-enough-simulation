@@ -325,7 +325,14 @@ body {
 .flash-wrong { /*this is for type box in speedtype flash red when wrong*/
   animation: flashRed 0.7s;
 }
+.subway {
+  position: absolute;
+  width: auto;
+  height: auto;
+  bottom: 10px;
+  right: 10px;
 
+}
 #textContainer {
   position: relative;
   display: inline-block;
