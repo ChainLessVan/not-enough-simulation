@@ -148,8 +148,8 @@ function startTypingGame() {
         const span = document.getElementById(`span${currentPos}`);
         const rect = span.getBoundingClientRect();
         const containerRect = textContainer.getBoundingClientRect();
-        Typingline.style.left = (rect.left - containerRect.left) + "px";
-        Typingline.style.top = (rect.bottom - containerRect.top) + "px";
+        Typingline.style.left = (rect.left - containerRect.left + 5) + "px";
+        Typingline.style.top = (rect.bottom - containerRect.top - 16) + "px";
     }
     //detect typing
     keylistener = function(event) {
