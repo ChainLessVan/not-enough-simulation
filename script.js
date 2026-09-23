@@ -28,7 +28,8 @@ const music = document.getElementById("MainMusic");
 const explosionSFX = document.getElementById("Explosion")
 const unlock = document.getElementById("UnlockingSound")
 const TouchGrassSfx = document.getElementById("TouchGrass")
-const Sounds = [music,explosionSFX,unlock,TouchGrassSfx];
+const goodJobVoice = document.getElementById("goodjob")
+const Sounds = [music,explosionSFX,unlock,TouchGrassSfx,goodJobVoice];
 //this is to refresh the sounds so sounds can be heard used in line 78
 let Audios = false;
 music.volume = 0.5;
@@ -97,6 +98,15 @@ function opentyperace() {
     
 }
 
+let TouchGrass = false;
+document.getElementById("grassButton").addEventListener("click",()=> {
+    console.log("Just before the IF");
+    if (TouchGrass === true) {
+        console.log("TouchgrassTureIF");
+        goodJobVoice.play()
+    }
+})
+
 
 
 
@@ -136,7 +146,6 @@ function startTypingGame() {
     //after split it combines back into a sentence to print out
     textContainer.innerHTML = htmlArr.join('');
     textContainer.appendChild(Typingline);
-
     let mistake = 0;
     let errors = [];
     let firstTime = true;
@@ -151,6 +160,8 @@ function startTypingGame() {
         Typingline.style.left = (rect.left - containerRect.left + 5) + "px";
         Typingline.style.top = (rect.bottom - containerRect.top - 16) + "px";
     }
+
+
     //detect typing
     keylistener = function(event) {
         if (event.key === ' ') event.preventDefault();
@@ -159,6 +170,9 @@ function startTypingGame() {
                     distract1[i].style.display = "block";
                 }
                 explosionSFX.play();
+            } else if (currentPos === Math.floor(textArr.length/3)) {
+                TouchGrass = true
+                TouchGrassSfx.play()
             }
         //starts timer
         if (firstTime) {
