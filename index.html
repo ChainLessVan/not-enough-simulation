@@ -17,7 +17,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <!--put everything inside the main_menu container for the main screen/starting menu -->
     <div class="main_menu" id="main_menu">
         <audio id="MainMusic" src="sounds/MainMenuBackground.mp3" loop></audio>
@@ -38,7 +37,7 @@
     </div>
 
 
-    <div id="speedtype" style="display:none;">
+    <div id="game" style="display:none;">
         <div>
             <div class="TeachSpeedType">
                 <h1 class = "speedtypeHeading"> This is speed typer</h1>
@@ -64,17 +63,20 @@
                     src="https://cdn.britannica.com/22/215522-050-8315BB78/green-grass-close-up.jpg?w=400&h=300&c=crop">
                 </img>
             </div>
-           
-            <div id="textContainer">
-                <div id="Typingline"></div>
-            </div>
+
             
-            <div id="resultsContainer" style="display:none;">
-                <h2>speedtyper</h2>
-                <p id="wpmText"></p>
-                <p id="accuracyText"></p>
-                <p id="timeText"></p>
-                <p id="mistakeText"></p>
+            <div class="typingGame">
+                <div id="resultsContainer" style="display:none;">
+                    <h2>speedtyper</h2>
+                    <p id="wpmText"></p>
+                    <p id="accuracyText"></p>
+                    <p id="timeText"></p>
+                    <p id="mistakeText"></p>
+                </div>
+                <div id="textContainer">
+                    <div id="Typingline" class="Typingline"></div>
+                </div>
+                
             </div>
             <button class="returnFromGame" onclick="returnFromType()"><p class="scenesText">Back</p></button>
         </div>

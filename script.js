@@ -18,7 +18,7 @@ function returnFromSettings() {
 
 function back1() {
     document.getElementById("gameMenu").style.display = "none";
-    document.getElementById("main_menu").style.display = "block"
+    document.getElementById("main_menu").style.display = "block";
 }
 
 //music stuff
@@ -68,13 +68,11 @@ function musicChange() {
 
 function returnFromType() {
     document.removeEventListener('keydown',keylistener);
-    document.getElementById("speedtype").style.display = "none";
+    document.getElementById("game").style.display = "none";
     document.getElementById("gameMenu").style.display = "block";
 
     music.play();
 
-    textContainer.innerHTML = "";
-    resultsContainer.style.display = "none";
 
     document.getElementById("resultsContainer").style.display = "none";
 }
@@ -84,7 +82,7 @@ const distract1 = [];
 function opentyperace() {
     music.pause();
     document.getElementById("gameMenu").style.display = "none";
-    document.getElementById("speedtype").style.display = "block";
+    document.getElementById("game").style.display = "block";
     distract1.push(document.getElementById("BOMB"));
     for (let i = 0; i < distract1.length; i++){
         distract1[i].style.display = "none";
@@ -146,7 +144,6 @@ function startTypingGame() {
     //after split it combines back into a sentence to print out
     textContainer.innerHTML = htmlArr.join('');
     textContainer.appendChild(Typingline);
-    let mistake = 0;
     let errors = [];
     let firstTime = true;
     let currentPos = 0;
@@ -157,8 +154,6 @@ function startTypingGame() {
         const span = document.getElementById(`span${currentPos}`);
         const rect = span.getBoundingClientRect();
         const containerRect = textContainer.getBoundingClientRect();
-        Typingline.style.left = (rect.left - containerRect.left + 5) + "px";
-        Typingline.style.top = (rect.bottom - containerRect.top - 16) + "px";
     }
 
 
@@ -236,7 +231,6 @@ function startTypingGame() {
     }
 
     function handleEnd() {
-        Typingline.style.display = "none";
         document.removeEventListener('keydown',keylistener);
         let wpm = Math.floor(textArr.length / 5 / (currentTime / 60));
         let accuracy = Math.floor(((textArr.length - errors.length) / textArr.length) * 100);
