@@ -96,12 +96,12 @@ function opentyperace() {
     startTypingGame();
     
 }
-
 let TouchGrass = false;
 document.getElementById("grassButton").addEventListener("click",()=> {
     console.log("Just before the IF");
     if (TouchGrass === true) {
         console.log("TouchgrassTureIF");
+        GrassTouched = true;
         goodJobVoice.play()
     }
 })
@@ -163,6 +163,7 @@ function startTypingGame() {
     //detect typing
     keylistener = function(event) {
         if (event.key === ' ') event.preventDefault();
+        //checks for distractions
             if (currentPos === Math.floor(textArr.length/5)) {
                 for (let i = 0; i < distract1.length; i++){
                     distract1[i].style.display = "block";
@@ -249,6 +250,7 @@ function startTypingGame() {
         accuracyText.innerHTML = `your accuracy is ${accuracy}%`;
         timeText.innerHTML = `You took ${minutes} m and ${seconds} s`;
         mistakeText.innerHTML = `You made ${mistakes} mistakes`;
+       
         
 
         textContainer.style.display = "none";
