@@ -292,8 +292,8 @@ body {
 }
 
 
-/* speed typin */
-#speedtype {
+/* the actuall game */
+#game {
   margin-top: 20vw;
   display: flex;
   justify-content: center;
@@ -332,12 +332,31 @@ body {
   height: auto;
   bottom: 10px;
   right: 10px;
-
 }
+
+.typingGame {
+  caret-color: transparent;
+  Width: fit-content;
+  max-width: 300px;
+  padding: 10px;
+  border: solid 5px rgb(28, 29, 27);
+  background-color: white;
+  font-family: "Press Start 2P", system-ui;
+  font-size: small;
+  box-sizing: border-box;
+}
+
 #textContainer {
   position: relative;
-  display: inline-block;
-  background-color: white;
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+#resultsContainer {
+  display: none;
+  float: none;
 }
 
 #typeInput {
@@ -348,13 +367,13 @@ body {
   font-size: 10px;
 }
 
-#Typingline {
+.Typingline {
   position: absolute;
   width: 2px;
   height: 20px;
   background: black;
   z-index: 30;
-  animation: blink 0.8s step-end infinite;
+
 }
 
 @keyframes blink {
