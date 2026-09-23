@@ -29,6 +29,7 @@ const explosionSFX = document.getElementById("Explosion")
 const unlock = document.getElementById("UnlockingSound")
 const TouchGrassSfx = document.getElementById("TouchGrass")
 const goodJobVoice = document.getElementById("goodjob")
+const YouGotMail = document.getElementById("Mail")
 const Sounds = [music,explosionSFX,unlock,TouchGrassSfx,goodJobVoice];
 //this is to refresh the sounds so sounds can be heard used in line 78
 let Audios = false;
@@ -144,12 +145,14 @@ function startTypingGame() {
     //after split it combines back into a sentence to print out
     textContainer.innerHTML = htmlArr.join('');
     textContainer.appendChild(Typingline);
+    let MailShown = 0;
     let errors = [];
     let firstTime = true;
     let currentPos = 0;
     let backspaceNeeded = false;
     let currentTime = 0;
     let repeat;
+    let MailNum = Math.floor(Math.random()*5)
     function UpdateTypingLinePos() {
         const span = document.getElementById(`span${currentPos}`);
         const rect = span.getBoundingClientRect();
@@ -175,6 +178,10 @@ function startTypingGame() {
             repeat = setInterval(() => {
                 currentTime++;
                 liveTime.textContent = `${currentTime}s`;
+                if (MailNum < currentTime && MailShown <3 ) {
+                    YouGotMail.play();
+                    MailShown = MailShown + 1                
+                }
             }   , 1000);       
         }
 
