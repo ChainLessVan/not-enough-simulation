@@ -18,7 +18,7 @@ function returnFromSettings() {
 
 function back1() {
     document.getElementById("gameMenu").style.display = "none";
-    document.getElementById("main_menu").style.display = "block";
+    document.getElementById("main_menu").style.display = "block"
 }
 
 //music stuff
@@ -29,7 +29,8 @@ const explosionSFX = document.getElementById("Explosion")
 const unlock = document.getElementById("UnlockingSound")
 const TouchGrassSfx = document.getElementById("TouchGrass")
 const goodJobVoice = document.getElementById("goodjob")
-const Sounds = [music,explosionSFX,unlock,TouchGrassSfx,goodJobVoice];
+const YouGotMail = document.getElementById("Mail")
+const Sounds = [music,explosionSFX,unlock,TouchGrassSfx,goodJobVoice,YouGotMail];
 //this is to refresh the sounds so sounds can be heard used in line 78
 let Audios = false;
 music.volume = 0.5;
@@ -68,11 +69,13 @@ function musicChange() {
 
 function returnFromType() {
     document.removeEventListener('keydown',keylistener);
-    document.getElementById("game").style.display = "none";
+    document.getElementById("speedtype").style.display = "none";
     document.getElementById("gameMenu").style.display = "block";
 
     music.play();
 
+    textContainer.innerHTML = "";
+    resultsContainer.style.display = "none";
 
     document.getElementById("resultsContainer").style.display = "none";
 }
@@ -82,7 +85,7 @@ const distract1 = [];
 function opentyperace() {
     music.pause();
     document.getElementById("gameMenu").style.display = "none";
-    document.getElementById("game").style.display = "block";
+    document.getElementById("speedtype").style.display = "block";
     distract1.push(document.getElementById("BOMB"));
     for (let i = 0; i < distract1.length; i++){
         distract1[i].style.display = "none";
@@ -102,6 +105,7 @@ document.getElementById("grassButton").addEventListener("click",()=> {
     if (TouchGrass === true) {
         console.log("TouchgrassTureIF");
         goodJobVoice.play()
+        TouchGrass = false
     }
 })
 
@@ -117,6 +121,7 @@ function getRandomInt(max) {
 }
 let keylistener;
 function startTypingGame() {
+    document.getElementById("mail").style.display = "none";
     //flashing typing line
     const Typingline = document.getElementById("Typingline");
     Typingline.style.display = "block";
@@ -144,18 +149,23 @@ function startTypingGame() {
     //after split it combines back into a sentence to print out
     textContainer.innerHTML = htmlArr.join('');
     textContainer.appendChild(Typingline);
+    let mistake = 0;
     let errors = [];
     let firstTime = true;
     let currentPos = 0;
     let backspaceNeeded = false;
     let currentTime = 0;
     let repeat;
+    let MailTime = Math.floor(Math.random()*5);
+    let MailShown = 0;
+    console.log("mailLet")
     function UpdateTypingLinePos() {
         const span = document.getElementById(`span${currentPos}`);
         const rect = span.getBoundingClientRect();
         const containerRect = textContainer.getBoundingClientRect();
+        Typingline.style.left = (rect.left - containerRect.left + 5) + "px";
+        Typingline.style.top = (rect.bottom - containerRect.top - 16) + "px";
     }
-
 
     //detect typing
     keylistener = function(event) {
@@ -175,7 +185,13 @@ function startTypingGame() {
             repeat = setInterval(() => {
                 currentTime++;
                 liveTime.textContent = `${currentTime}s`;
-            }   , 1000);       
+                if ((MailShown < 3) && currentTime > MailTime) {
+                    console.log("MAIL")
+                    YouGotMail.play()
+                    mail.style.display = "block";
+                    MailShown = MailShown + 1
+                }
+            }   , 1000);
         }
 
         //check if key is from main keyboard
@@ -231,17 +247,21 @@ function startTypingGame() {
     }
 
     function handleEnd() {
+        Typingline.style.display = "none";
         document.removeEventListener('keydown',keylistener);
         let wpm = Math.floor(textArr.length / 5 / (currentTime / 60));
         let accuracy = Math.floor(((textArr.length - errors.length) / textArr.length) * 100);
         let minutes = Math.floor(currentTime / 60);
         let seconds = currentTime - minutes * 60;
         let mistakes = errors.length;
-
+        mail.style.display = "none";
         wpmText.innerHTML = `your wpm is ${wpm} wpm`;
         accuracyText.innerHTML = `your accuracy is ${accuracy}%`;
         timeText.innerHTML = `You took ${minutes} m and ${seconds} s`;
         mistakeText.innerHTML = `You made ${mistakes} mistakes`;
+        if (!TouchGrass) {
+            win.innerHTML = `You failed as u didnt touch grass`;
+        }
         
 
         textContainer.style.display = "none";
