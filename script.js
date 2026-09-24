@@ -145,14 +145,12 @@ function startTypingGame() {
     //after split it combines back into a sentence to print out
     textContainer.innerHTML = htmlArr.join('');
     textContainer.appendChild(Typingline);
-    let MailShown = 0;
     let errors = [];
     let firstTime = true;
     let currentPos = 0;
     let backspaceNeeded = false;
     let currentTime = 0;
     let repeat;
-    let MailNum = Math.floor(Math.random()*5)
     function UpdateTypingLinePos() {
         const span = document.getElementById(`span${currentPos}`);
         const rect = span.getBoundingClientRect();
@@ -179,10 +177,6 @@ function startTypingGame() {
             repeat = setInterval(() => {
                 currentTime++;
                 liveTime.textContent = `${currentTime}s`;
-                if (MailNum < currentTime && MailShown <3 ) {
-                    YouGotMail.play();
-                    MailShown = MailShown + 1                
-                }
             }   , 1000);       
         }
 
@@ -288,12 +282,25 @@ trigger.addEventListener("mouseleave", () => {
 
 
 //  INBOX!!!!!!!!
-const gotMail = false;
-
-function getMail() {
+function mailTask() {
     const mailTaskArr = ["Type one letter","This is not a test","Jonah was not here"];
-    const mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
-    mailText.innerHTML = mail;
+    let mail;
+    let gotMail = false;
+     setInterval(() => {
+        console.log("tick")
+        if (!gotMail) {   
+            console.log("No mail")
+            mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
+            gotMail = true
+        }      
+        else if (getRandomInt(10) === 0 ){
+            console.log("GetranIntSucced")
+            mailText.innerHTML = mail;
+            YouGotMail.play()
+            gotMail = false
+
+            }
+        }   , 1000);       
 }
 
-getMail()
+mailTask()
