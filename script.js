@@ -289,11 +289,30 @@ trigger.addEventListener("mouseleave", () => {
 
 //  INBOX!!!!!!!!
 const gotMail = false;
-
+let numberOfMail = 0;
+let lost = false;
 function getMail() {
-    const mailTaskArr = ["Type one letter","This is not a test","Jonah was not here"];
+    const mailBox = getElementById("mailBox")
+    const mailTaskArr = ["Type one letter", "This is not a test", "Jonah was not here"];
     const mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
-    mailText.innerHTML = mail;
+    mailBox.style.display = block;
+    if (numberOfMail == 0) {
+        mailText1.innerHTML = mail;
+    } else if (numberOfMail == 1) {
+        mailText2.innerHTML = mail;
+    } else if (numberOfMail == 2) {
+        mailText3.innerHTML = mail;
+    } else if (numberOfMail == 3) {
+        mailText4.innerHTML = mail;
+    } else if (numberOfMail == 4) {
+        mailText5.innerHTML = mail;
+    } else if (numberOfMail == 5) {
+        mailText6.innerHTML = mail;
+    } else if (numberOfMail == 6) {
+        mailText7.innerHTML = mail;
+    }
+    numberOfMail = numberOfMail + 1;
+    if (numberOfMail > 7) {
+        lost = true;
+    }
 }
-
-getMail()
