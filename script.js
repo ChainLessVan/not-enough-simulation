@@ -108,6 +108,33 @@ document.getElementById("grassButton").addEventListener("click",()=> {
 
 
 
+let gotMail = false;
+const mailText = document.getElementById("mailText")
+//  INBOX!!!!!!!!
+function mailTask() {
+    document.getElementById("mail").style.display = "none";
+    const mailTaskArr = ["Type one letter","Touch grass","Jonah was not here"];
+    let mail;
+
+     setInterval(() => {
+        console.log("tick")
+        if (!gotMail) {   
+            console.log("No mail")
+            mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
+            gotMail = true
+        }      
+        else if (getRandomInt(10) === 0 ){
+            console.log("GetranIntSucced")
+            mailText.innerHTML += `<div class="mailItem">${mail}</div>`;
+            if (mail === mailTaskArr[1]) {
+            }
+            YouGotMail.play()
+            gotMail = false
+
+            }
+        }   , 1000);       
+}
+
 
 
 
@@ -118,6 +145,7 @@ function getRandomInt(max) {
 }
 let keylistener;
 function startTypingGame() {
+    mailTask()
     //flashing typing line
     const Typingline = document.getElementById("Typingline");
     Typingline.style.display = "block";
@@ -274,32 +302,3 @@ trigger.addEventListener("mouseleave", () => {
         el.style.display = "none";
 })});
 
-let gotMail = false;
-const mailText = document.getElementById("mailText")
-//  INBOX!!!!!!!!
-function mailTask() {
-    document.getElementById("mail").style.display = "none";
-    const mailTaskArr = ["Type one letter","Touch grass","Jonah was not here"];
-    let mail;
-
-     setInterval(() => {
-        console.log("tick")
-        if (!gotMail) {   
-            console.log("No mail")
-            mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
-            gotMail = true
-        }      
-        else if (getRandomInt(10) === 0 ){
-            console.log("GetranIntSucced")
-            mailText.innerHTML += `<div class="mailItem">${mail}</div>`;
-            if (mail === mailTaskArr[1]) {
-                TouchGrassSfx.play()
-            }
-            YouGotMail.play()
-            gotMail = false
-
-            }
-        }   , 1000);       
-}
-
-mailTask()
