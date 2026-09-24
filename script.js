@@ -108,6 +108,33 @@ document.getElementById("grassButton").addEventListener("click",()=> {
 
 
 
+let gotMail = false;
+const mailText = document.getElementById("mailText")
+//  INBOX!!!!!!!!
+function mailTask() {
+    document.getElementById("mail").style.display = "none";
+    const mailTaskArr = ["Type one letter","Touch grass","Jonah was not here"];
+    let mail;
+
+     setInterval(() => {
+        console.log("tick")
+        if (!gotMail) {   
+            console.log("No mail")
+            mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
+            gotMail = true
+        }      
+        else if (getRandomInt(10) === 0 ){
+            console.log("GetranIntSucced")
+            mailText.innerHTML += `<div class="mailItem">${mail}</div>`;
+            if (mail === mailTaskArr[1]) {
+            }
+            YouGotMail.play()
+            gotMail = false
+
+            }
+        }   , 1000);       
+}
+
 
 
 
@@ -118,6 +145,7 @@ function getRandomInt(max) {
 }
 let keylistener;
 function startTypingGame() {
+    mailTask()
     //flashing typing line
     const Typingline = document.getElementById("Typingline");
     Typingline.style.display = "block";
@@ -145,19 +173,12 @@ function startTypingGame() {
     //after split it combines back into a sentence to print out
     textContainer.innerHTML = htmlArr.join('');
     textContainer.appendChild(Typingline);
-    let MailShown = 0;
     let errors = [];
     let firstTime = true;
     let currentPos = 0;
     let backspaceNeeded = false;
     let currentTime = 0;
     let repeat;
-    let MailNum = Math.floor(Math.random()*5)
-    function UpdateTypingLinePos() {
-        const span = document.getElementById(`span${currentPos}`);
-        const rect = span.getBoundingClientRect();
-        const containerRect = textContainer.getBoundingClientRect();
-    }
 
 
     //detect typing
@@ -179,10 +200,6 @@ function startTypingGame() {
             repeat = setInterval(() => {
                 currentTime++;
                 liveTime.textContent = `${currentTime}s`;
-                if (MailNum < currentTime && MailShown <3 ) {
-                    YouGotMail.play();
-                    MailShown = MailShown + 1                
-                }
             }   , 1000);       
         }
 
@@ -195,7 +212,6 @@ function startTypingGame() {
     document.addEventListener('keydown',keylistener);
     
     function handleKey(key) {
-        UpdateTypingLinePos();
         //gets the current letter by their span id
         let span = document.getElementById(`span${currentPos}`).style;
         //only allows typing if theres no mistake
@@ -289,30 +305,11 @@ trigger.addEventListener("mouseleave", () => {
 
 //  INBOX!!!!!!!!
 const gotMail = false;
-let numberOfMail = 0;
-let lost = false;
+
 function getMail() {
-    const mailBox = getElementById("mailBox")
-    const mailTaskArr = ["Type one letter", "This is not a test", "Jonah was not here"];
+    const mailTaskArr = ["Type one letter","This is not a test","Jonah was not here"];
     const mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
-    mailBox.style.display = block;
-    if (numberOfMail == 0) {
-        mailText1.innerHTML = mail;
-    } else if (numberOfMail == 1) {
-        mailText2.innerHTML = mail;
-    } else if (numberOfMail == 2) {
-        mailText3.innerHTML = mail;
-    } else if (numberOfMail == 3) {
-        mailText4.innerHTML = mail;
-    } else if (numberOfMail == 4) {
-        mailText5.innerHTML = mail;
-    } else if (numberOfMail == 5) {
-        mailText6.innerHTML = mail;
-    } else if (numberOfMail == 6) {
-        mailText7.innerHTML = mail;
-    }
-    numberOfMail = numberOfMail + 1;
-    if (numberOfMail > 7) {
-        lost = true;
-    }
+    mailText.innerHTML = mail;
 }
+
+getMail()
