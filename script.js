@@ -184,7 +184,6 @@ function startTypingGame() {
     document.addEventListener('keydown',keylistener);
     
     function handleKey(key) {
-        UpdateTypingLinePos();
         //gets the current letter by their span id
         let span = document.getElementById(`span${currentPos}`).style;
         //only allows typing if theres no mistake
@@ -275,13 +274,14 @@ trigger.addEventListener("mouseleave", () => {
         el.style.display = "none";
 })});
 
-
+let gotMail = false;
+const mailText = document.getElementById("mailText")
 //  INBOX!!!!!!!!
 function mailTask() {
     document.getElementById("mail").style.display = "none";
-    const mailTaskArr = ["Type one letter","This is not a test","Jonah was not here"];
+    const mailTaskArr = ["Type one letter","Touch grass","Jonah was not here"];
     let mail;
-    let gotMail = false;
+
      setInterval(() => {
         console.log("tick")
         if (!gotMail) {   
@@ -292,6 +292,9 @@ function mailTask() {
         else if (getRandomInt(10) === 0 ){
             console.log("GetranIntSucced")
             mailText.innerHTML += `<div class="mailItem">${mail}</div>`;
+            if (mail === mailTaskArr[1]) {
+                TouchGrassSfx.play()
+            }
             YouGotMail.play()
             gotMail = false
 
