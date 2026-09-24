@@ -262,7 +262,7 @@ function startTypingGame() {
 }
 
 
-
+// make text glitchy
 const trigger = document.querySelector(".homeButton");
 const targets = document.querySelectorAll(".target");
 const title = document.querySelector(".title1")
@@ -285,3 +285,15 @@ trigger.addEventListener("mouseleave", () => {
         scrollingText.forEach(el => {
         el.style.display = "none";
 })});
+
+
+//  INBOX!!!!!!!!
+const gotMail = false;
+
+function getMail() {
+    const mailTaskArr = ["Type one letter","This is not a test","Jonah was not here"];
+    const mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
+    mailText.innerHTML = mail;
+}
+
+getMail()

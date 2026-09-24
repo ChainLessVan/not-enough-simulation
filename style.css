@@ -340,28 +340,39 @@ body {
   top: 20px;
   right: 20px;
   margin: auto;
-  width: 300px;
+  width: 500px;
   height: 300px;
   background-color: #ffffff;
   border-radius: 25px;
+  margin-bottom: 10px;
   z-index: 10;
 }
 
 .header {
+  display: absolute;
   overflow: hidden;
   height: 40px;
-  border: #0c0c0c 2px solid;
+  background-color: #d9e7fb;
 }
 
 .header img {
   float: left;
-  display: inline-block;
-  margin: 0;
-  height: 45px;
+  margin-left: 15px;
+  height: 42px;
 }
 
-.header .Text {
-  d
+.mailBox {
+  padding: 0px;
+  background-color: #FFFFFF;
+  border-bottom: #3a3535 1px solid;
+  border-top: #3a3535 1px solid;
+}
+
+.mailText {
+  color: #3a3535;
+  font-family: "Press Start 2P", system-ui;
+  margin: 5px;
+  font-size: 15px;
 }
 
 .typingGame {
