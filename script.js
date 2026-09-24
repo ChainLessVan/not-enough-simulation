@@ -151,11 +151,6 @@ function startTypingGame() {
     let backspaceNeeded = false;
     let currentTime = 0;
     let repeat;
-    function UpdateTypingLinePos() {
-        const span = document.getElementById(`span${currentPos}`);
-        const rect = span.getBoundingClientRect();
-        const containerRect = textContainer.getBoundingClientRect();
-    }
 
 
     //detect typing
@@ -283,6 +278,7 @@ trigger.addEventListener("mouseleave", () => {
 
 //  INBOX!!!!!!!!
 function mailTask() {
+    document.getElementById("mail").style.display = "none";
     const mailTaskArr = ["Type one letter","This is not a test","Jonah was not here"];
     let mail;
     let gotMail = false;
@@ -295,7 +291,7 @@ function mailTask() {
         }      
         else if (getRandomInt(10) === 0 ){
             console.log("GetranIntSucced")
-            mailText.innerHTML = mail;
+            mailText.innerHTML += `<div class="mailItem">${mail}</div>`;
             YouGotMail.play()
             gotMail = false
 
