@@ -34,6 +34,7 @@ const TouchGrassSfx = document.getElementById("TouchGrass")
 const goodJobVoice = document.getElementById("goodjob")
 const YouGotMail = document.getElementById("Mail")
 const Countdown = document.getElementById("Countdown")
+const JumpscareSFX = document.getElementById("JumpscareSFX")
 const Sounds = [music,explosionSFX,unlock,TouchGrassSfx,goodJobVoice,Countdown];
 //this is to refresh the sounds so sounds can be heard used in line 78
 let Audios = false;
@@ -85,10 +86,10 @@ let lost = false;
 //perma checks if lost = true then does smth later ill add
 setInterval(() => {
     if (lost) {
-        console.log("before hide game")
         document.getElementById("GameContent").style.display = "none";
-        console.log("after hide game")
+        JumpscareSFX.play()
         Jumpscare.style.display = "block";
+        lost = false;
     }
 },100)
 const distract1 = [];
@@ -109,23 +110,25 @@ function opentyperace() {
     startTypingGame();
     
 }
+//lost check for grass
+let grasstouch = false;
 let TouchGrass = false;
 document.getElementById("grassButton").addEventListener("click",()=> {
-    console.log("Just before the IF");
     if (TouchGrass === true) {
-        console.log("TouchgrassTureIF");
         Countdown.currentTime = 0
+        grasstouch = true;
         Countdown.pause()
         goodJobVoice.play()
     }
 })
 
-
+//lost check for grass
 async function countdown() {
     await wait(1000);
     Countdown.play()
     await wait(10000)
-    if (!TouchGrass) {
+    if (TouchGrass && !grasstouch) {
+        console.log("grassLost")
         lost = true;
     }
 }
@@ -329,6 +332,7 @@ function getMail() {
     }
     numberOfMail = numberOfMail + 1;
     if (numberOfMail > 7) {
+        console.log("maillost")
         lost = true;
     }
 }
