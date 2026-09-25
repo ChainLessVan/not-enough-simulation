@@ -1,4 +1,7 @@
 //opening stuff
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve,ms));    
+    }
 function opengames() {
     document.getElementById("main_menu").style.display = "none";
     document.getElementById("gameMenu").style.display = "block";
@@ -30,7 +33,8 @@ const unlock = document.getElementById("UnlockingSound")
 const TouchGrassSfx = document.getElementById("TouchGrass")
 const goodJobVoice = document.getElementById("goodjob")
 const YouGotMail = document.getElementById("Mail")
-const Sounds = [music,explosionSFX,unlock,TouchGrassSfx,goodJobVoice];
+const Countdown = document.getElementById("Countdown")
+const Sounds = [music,explosionSFX,unlock,TouchGrassSfx,goodJobVoice,Countdown];
 //this is to refresh the sounds so sounds can be heard used in line 78
 let Audios = false;
 music.volume = 0.5;
@@ -64,9 +68,6 @@ function musicChange() {
 
 
 
-
-
-
 function returnFromType() {
     document.removeEventListener('keydown',keylistener);
     document.getElementById("game").style.display = "none";
@@ -79,6 +80,14 @@ function returnFromType() {
 }
 
 
+let lost = false;
+
+//perma checks if lost = true then does smth later ill add
+setInterval(() => {
+    if (lost) {
+
+    }
+},100)
 const distract1 = [];
 function opentyperace() {
     music.pause();
@@ -101,41 +110,21 @@ document.getElementById("grassButton").addEventListener("click",()=> {
     console.log("Just before the IF");
     if (TouchGrass === true) {
         console.log("TouchgrassTureIF");
-        GrassTouched = true;
+        Countdown.currentTime = 0
+        Countdown.pause()
         goodJobVoice.play()
     }
 })
 
 
-
-
-const mailText = document.getElementById("mailText")
-//  INBOX!!!!!!!!
-function mailTask() {
-    document.getElementById("mail").style.display = "none";
-    const mailTaskArr = ["Type one letter","Touch grass","Jonah was not here"];
-    let mail;
-
-     setInterval(() => {
-        console.log("tick")
-        if (!gotMail) {   
-            console.log("No mail")
-            mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
-            gotMail = true
-        }      
-        else if (getRandomInt(10) === 0 ){
-            console.log("GetranIntSucced")
-            mailText.innerHTML += `<div class="mailItem">${mail}</div>`;
-            if (mail === mailTaskArr[1]) {
-            }
-            YouGotMail.play()
-            gotMail = false
-
-            }
-        }   , 1000);       
+async function countdown() {
+    await wait(1000);
+    Countdown.play()
+    await wait(10000)
+    if (!TouchGrass) {
+        lost = true;
+    }
 }
-
-
 
 
 //this will be the new text game
@@ -145,7 +134,6 @@ function getRandomInt(max) {
 }
 let keylistener;
 function startTypingGame() {
-    mailTask()
     //flashing typing line
     const Typingline = document.getElementById("Typingline");
     Typingline.style.display = "block";
@@ -193,6 +181,7 @@ function startTypingGame() {
             } else if (currentPos === Math.floor(textArr.length/3)) {
                 TouchGrass = true
                 TouchGrassSfx.play()
+                countdown()
             }
         //starts timer
         if (firstTime) {
@@ -306,7 +295,7 @@ trigger.addEventListener("mouseleave", () => {
 //  INBOX!!!!!!!!
 let gotMail = false;
 let numberOfMail = 0;
-let lost = false;
+//i moved lost variable to the start
 function getMail() {
     const mailBox = document.getElementById("mailBox")
     const mailTaskArr = ["Type one letter", "This is not a test", "Jonah was not here"];
@@ -340,3 +329,9 @@ function getMail() {
     }
 }
 
+//every sec gameble for mail
+setInterval (() => {
+    if (getRandomInt(3) === 1){
+        getMail()
+    }
+},1000);
