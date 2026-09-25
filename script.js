@@ -108,7 +108,7 @@ document.getElementById("grassButton").addEventListener("click",()=> {
 
 
 
-let gotMail = false;
+
 const mailText = document.getElementById("mailText")
 //  INBOX!!!!!!!!
 function mailTask() {
@@ -304,12 +304,39 @@ trigger.addEventListener("mouseleave", () => {
 
 
 //  INBOX!!!!!!!!
-const gotMail = false;
-
+let gotMail = false;
+let numberOfMail = 0;
+let lost = false;
 function getMail() {
-    const mailTaskArr = ["Type one letter","This is not a test","Jonah was not here"];
+    const mailBox = document.getElementById("mailBox")
+    const mailTaskArr = ["Type one letter", "This is not a test", "Jonah was not here"];
     const mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
-    mailText.innerHTML = mail;
+    mailBox.style.display = "block";
+    if (numberOfMail == 0) {
+        mailText1.innerHTML = mail;
+        mailFrame1.style.display = "block";
+    } else if (numberOfMail == 1) {
+        mailText2.innerHTML = mail;
+        mailFrame2.style.display = "block";
+    } else if (numberOfMail == 2) {
+        mailText3.innerHTML = mail;
+        mailFrame3.style.display = "block";
+    } else if (numberOfMail == 3) {
+        mailText4.innerHTML = mail;
+        mailFrame4.style.display = "block";
+    } else if (numberOfMail == 4) {
+        mailText5.innerHTML = mail;
+        mailFrame5.style.display = "block";
+    } else if (numberOfMail == 5) {
+        mailText6.innerHTML = mail;
+        mailFrame6.style.display = "block";
+    } else if (numberOfMail == 6) {
+        mailText7.innerHTML = mail;
+        mailFrame7.style.display = "block";
+    }
+    numberOfMail = numberOfMail + 1;
+    if (numberOfMail > 7) {
+        lost = true;
+    }
 }
 
-getMail()

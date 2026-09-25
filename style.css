@@ -335,7 +335,7 @@ body {
 }
 
 .inbox {
-  overflow: hidden;
+  overflow-y: auto;
   position: absolute;
   top: 20px;
   right: 20px;
@@ -371,8 +371,20 @@ body {
 .mailText {
   color: #3a3535;
   font-family: "Press Start 2P", system-ui;
-  margin: 5px;
+
   font-size: 15px;
+}
+
+.mailTextBlue {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 15px;
+}
+
+.mailFrameBlue {
+  display: none;
+  background-color: #e5f0f1;
+  padding: 1px;
+  border-radius: 15px;
 }
 
 .typingGame {
