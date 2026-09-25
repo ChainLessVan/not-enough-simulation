@@ -313,7 +313,7 @@ function getMail() {
     const mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
     mailBox.style.display = "block";
     if (numberOfMail == 0) {
-        mailText1.innerHTML = mail;
+        mailText1.innerHTML += mail;
         mailFrame1.style.display = "block";
     } else if (numberOfMail == 1) {
         mailText2.innerHTML = mail;

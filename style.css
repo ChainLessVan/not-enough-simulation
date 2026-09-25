@@ -362,20 +362,30 @@ body {
 }
 
 .mailBox {
-  padding: 0px;
+  padding: 5px;
   background-color: #FFFFFF;
   border-bottom: #3a3535 1px solid;
   border-top: #3a3535 1px solid;
+  overflow: hidden;
 }
 
 .mailText {
   color: #3a3535;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 50px;
+  margin: 0;
   font-family: "Press Start 2P", system-ui;
-
   font-size: 15px;
 }
 
 .mailTextBlue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 50px;
+  margin: 0;
   font-family: "Press Start 2P", system-ui;
   font-size: 15px;
 }
@@ -386,6 +396,18 @@ body {
   padding: 1px;
   border-radius: 15px;
 }
+
+.mailpfp {
+  float: left;
+  height: 30px;
+  border: #0c0c0c 1px solid;
+  border-radius: 100%;
+  margin: 3px;
+}
+
+
+
+
 
 .typingGame {
   position: absolute;
