@@ -79,13 +79,16 @@ function returnFromType() {
     document.getElementById("resultsContainer").style.display = "none";
 }
 
-
+const Jumpscare =document.getElementById("TungTung")
 let lost = false;
 
 //perma checks if lost = true then does smth later ill add
 setInterval(() => {
     if (lost) {
-
+        console.log("before hide game")
+        document.getElementById("GameContent").style.display = "none";
+        console.log("after hide game")
+        Jumpscare.style.display = "block";
     }
 },100)
 const distract1 = [];
@@ -93,6 +96,7 @@ function opentyperace() {
     music.pause();
     document.getElementById("gameMenu").style.display = "none";
     document.getElementById("game").style.display = "block";
+    Jumpscare.style.display = "none";
     distract1.push(document.getElementById("BOMB"));
     for (let i = 0; i < distract1.length; i++){
         distract1[i].style.display = "none";
