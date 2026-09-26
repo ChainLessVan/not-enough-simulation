@@ -397,6 +397,12 @@ body {
   border-radius: 15px;
 }
 
+.mailFrameBlank {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .mailpfp {
   float: left;
   height: 30px;
@@ -405,6 +411,11 @@ body {
   margin: 3px;
 }
 
+.timerText {
+  float: right;
+  font-family: "Press Start 2P", system-ui;
+  color: red;
+}
 
 
 
@@ -413,7 +424,6 @@ body {
   position: absolute;
   left: 10px;
   bottom: 200px;
-  caret-color: transparent;
   Width: fit-content;
   max-width: 300px;
   padding: 10px;

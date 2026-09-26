@@ -1,3 +1,5 @@
+let userInGame = false
+
 //opening stuff
 function wait(ms) {
     return new Promise(resolve => setTimeout(resolve,ms));    
@@ -5,6 +7,7 @@ function wait(ms) {
 function opengames() {
     document.getElementById("main_menu").style.display = "none";
     document.getElementById("gameMenu").style.display = "block";
+    userInGame = true
 }
 
 function opensettings() {
@@ -22,6 +25,7 @@ function returnFromSettings() {
 function back1() {
     document.getElementById("gameMenu").style.display = "none";
     document.getElementById("main_menu").style.display = "block";
+    userInGame = false
 }
 
 //music stuff
@@ -122,7 +126,7 @@ document.getElementById("grassButton").addEventListener("click",()=> {
     }
 })
 
-//lost check for grass
+//lost check for grass + emails
 async function countdown() {
     await wait(1000);
     Countdown.play()
@@ -133,6 +137,28 @@ async function countdown() {
     }
 }
 
+//the emails
+function startCountdown(id) {
+    let count = 40;
+    myDisplayer(count, id);
+    
+    activeTimers[id] = setInterval(function(){
+        count--;
+        myDisplayer(count, id);
+
+    if (count === 0) {
+        lost = true;
+        clearInterval(activeTimers[id]);
+        delete activeTimers[id]
+        myDisplayer("Donnne");
+    }
+    }, 1000)
+}
+
+function myDisplayer(text, id) {
+    const elementId = document.getElementById(id);
+    elementId.innerHTML = text;
+}
 
 //this will be the new text game
 
@@ -196,7 +222,7 @@ function startTypingGame() {
             repeat = setInterval(() => {
                 currentTime++;
                 liveTime.textContent = `${currentTime}s`;
-            }   , 1000);       
+            }   , 1000);  
         }
 
         //check if key is from main keyboard
@@ -308,26 +334,28 @@ function getMail() {
     const mailTaskArr = ["Type one letter", "This is not a test", "Jonah was not here"];
     const mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
     mailBox.style.display = "block";
+    
     if (numberOfMail == 0) {
         mailText1.innerHTML += mail;
         mailFrame1.style.display = "block";
     } else if (numberOfMail == 1) {
-        mailText2.innerHTML = mail;
+        mailText2.innerHTML += mail; // caht am I cooooookeed
         mailFrame2.style.display = "block";
     } else if (numberOfMail == 2) {
-        mailText3.innerHTML = mail;
+        
+        mailText3.innerHTML += mail;
         mailFrame3.style.display = "block";
     } else if (numberOfMail == 3) {
-        mailText4.innerHTML = mail;
+        mailText4.innerHTML += mail;
         mailFrame4.style.display = "block";
     } else if (numberOfMail == 4) {
-        mailText5.innerHTML = mail;
+        mailText5.innerHTML += mail;
         mailFrame5.style.display = "block";
     } else if (numberOfMail == 5) {
-        mailText6.innerHTML = mail;
+        mailText6.innerHTML += mail;
         mailFrame6.style.display = "block";
     } else if (numberOfMail == 6) {
-        mailText7.innerHTML = mail;
+        mailText7.innerHTML += mail;
         mailFrame7.style.display = "block";
     }
     numberOfMail = numberOfMail + 1;
@@ -338,8 +366,10 @@ function getMail() {
 }
 
 //every sec gameble for mail
-setInterval (() => {
-    if (getRandomInt(3) === 1){
-        getMail()
-    }
-},1000);
+if (userInGame) {
+    setInterval (() => {
+        if (getRandomInt(5) === 1){
+            getMail()
+        }
+    }, 2000);
+}

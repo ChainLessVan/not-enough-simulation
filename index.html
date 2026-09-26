@@ -31,8 +31,8 @@
         <div class="homeButtonDiv"><button class="homeButton" onclick="opengames()" id="trigger">PLAY</button></div>
         <div class="homeButtonDiv"><button class="homeButton" onclick="opensettings()">SETTINGS</button></div>
         <div class="desctiption"><p class="scenesText">Estimated time: 30 mins</p></div>
-        <div class="scrollGlitch1"><h1 class="scrollText">This is making me dull lol - This is making me dull lol - This is making me dull lol - This is making me dull lol - This is making me dull lol</h1></div>
-        <div class="scrollGlitch2"><h1 class="scrollText">This is making me dull lol - This is making me dull lol - This is making me dull lol - This is making me dull lol - This is making me dull lol</h1></div>
+        <div class="scrollGlitch1"><h1 class="scrollText">I need more simulation - I need more simulation - I need more simulation - I need more simulation - I need more simulation - I need more simulation - I need more simulation - </h1></div>
+        <div class="scrollGlitch2"><h1 class="scrollText">I need more simulation - I need more simulation - I need more simulation - I need more simulation - I need more simulation - I need more simulation - I need more simulation - </h1></div>
         <div class="footer">
             <span><h2 class="whiteText">Made by h.i.</h2><h2 class="greenText">incorporated</h2></span>
             <img src="images/volumeOn.png" onclick="musicChange()" class="musicToggle">
@@ -48,17 +48,30 @@
                     <img src="images/gmail.png" class="mailImage"><p class="mailText"><s>My</s> OurMail.com</p>
                 </div>
                 <div class="mailBox" id="mailBox" style="display: none;">
-                    <div id="mailFrame1" style="display: none;">
-                        <p id="mailText1" class="mailTextBlue"><img class="mailpfp" src="images/Mailpfp.jpg"></p>
+                    <div id="mailFrame1" class="mailFrameBlank">
+                        <span style="display: flex; gap: 20px;"><p id="mailText1" class="mailTextBlue"><img class="mailpfp" src="images/Mailpfp.jpg"></p>
+                        <p class="timerText" id="timer1">20s</p></span>
                     </div>
                     <div class="mailFrameBlue" id="mailFrame2">
-                        <p id="mailText2" class="mailText"></p>
+                        <p id="mailText2" class="mailText"><img class="mailpfp" src="images/Mailpfp.jpg"></p>
                     </div>
-                    <span id="mailFrame3"><p id="mailText3" class="mailTextBlue"></p></span>
-                    <div class="mailFrameBlue" id="mailFrame4"><p id="mailText4" class="mailText"></p></div>
-                    <span id="mailFrame5"><p id="mailText5" class="mailTextBlue"></p></span>
-                    <div class="mailFrameBlue" id="mailFrame6"><p id="mailText6" class="mailText"></p></div>
-                    <span id="mailFrame7"><p id="mailText7" class="mailTextBlue"></p></span>
+                    <div id="mailFrame3" class="mailFrameBlank">
+                        <span style="display: flex; gap: 20px;"><p id="mailText3" class="mailTextBlue"><img class="mailpfp" src="images/Mailpfp.jpg"></p>
+                        <p class="timerText" id="timer2">30s</p></span>
+                    </div>
+                    <div class="mailFrameBlue" id="mailFrame4">
+                        <p id="mailText4" class="mailText"><img class="mailpfp" src="images/Mailpfp.jpg"></p>
+                    </div>
+                    <div id="mailFrame5" class="mailFrameBlank">
+                        <span style="display: flex; gap: 20px;"><p id="mailText5" class="mailTextBlue"><img class="mailpfp" src="images/Mailpfp.jpg"></p>
+                        <p class="timerText" id="timer3">30s</p></span>
+                    </div>
+                    <div class="mailFrameBlue" id="mailFrame6">
+                        <p id="mailText6" class="mailText"><img class="mailpfp" src="images/Mailpfp.jpg"></p>
+                    </div>
+                    <div id="mailFrame7" style="display: none;">
+                        <p id="mailText7" class="mailTextBlue"><img class="mailpfp" src="images/Mailpfp.jpg"></p>
+                    </div>
                 </div>
             </div>
             <div class="TeachSpeedType">
