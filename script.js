@@ -1,4 +1,4 @@
-let userInGame = false
+let userInGame = false;
 
 //opening stuff
 function wait(ms) {
@@ -86,9 +86,17 @@ function returnFromType() {
 
 const Jumpscare =document.getElementById("TungTung")
 let lost = false;
-
+let typeOneLetter = 0;
+let mailLostCon = [typeOneLetter]
+let sum = 0;
 //perma checks if lost = true then does smth later ill add
 setInterval(() => {
+    sum = mailLostCon.forEach(num => { 
+        sum+= num;
+    })
+    if (sum === 7){
+        lost = true
+    }
     if (lost) {
         document.getElementById("GameContent").style.display = "none";
         JumpscareSFX.play()
@@ -98,6 +106,7 @@ setInterval(() => {
 },100)
 const distract1 = [];
 function opentyperace() {
+    typeOneLetter = 0
     music.pause();
     document.getElementById("gameMenu").style.display = "none";
     document.getElementById("game").style.display = "block";
@@ -333,6 +342,9 @@ function getMail() {
     const mailBox = document.getElementById("mailBox")
     const mailTaskArr = ["Type one letter", "This is not a test", "Jonah was not here"];
     const mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
+    if (mail === mailTaskArr[0]){
+        typeOneLetter = typeOneLetter + 1
+    }
     mailBox.style.display = "block";
     
     if (numberOfMail == 0) {
@@ -342,7 +354,6 @@ function getMail() {
         mailText2.innerHTML += mail; // caht am I cooooookeed
         mailFrame2.style.display = "block";
     } else if (numberOfMail == 2) {
-        
         mailText3.innerHTML += mail;
         mailFrame3.style.display = "block";
     } else if (numberOfMail == 3) {
@@ -366,10 +377,15 @@ function getMail() {
 }
 
 //every sec gameble for mail
-if (userInGame) {
-    setInterval (() => {
-        if (getRandomInt(5) === 1){
-            getMail()
+setInterval (() => {
+    if (getRandomInt(5) === 1 && userInGame){
+        getMail()
         }
-    }, 2000);
+        if (!userInGame) {
+
+        }
+}, 2000);
+
+function ResetMail () {
+    numberOfMail = 0;
 }
