@@ -87,7 +87,6 @@ function returnFromType() {
 const Jumpscare =document.getElementById("TungTung")
 let lost = false;
 let typeOneLetter = 0;
-let mailLostCon = [typeOneLetter]
 let sum = 0;
 //perma checks if lost = true then does smth later ill add
 setInterval(() => {
@@ -251,6 +250,7 @@ function startTypingGame() {
             if (key === textArr[currentPos]) {
                 span.color = 'green';
                 currentPos++;
+                typeOneLetter++;
             } else {
 
                 //makes red space
@@ -346,7 +346,6 @@ function getMail() {
         typeOneLetter = typeOneLetter + 1
     }
     mailBox.style.display = "block";
-    
     if (numberOfMail == 0) {
         mailText1.innerHTML += mail;
         mailFrame1.style.display = "block";
@@ -374,6 +373,7 @@ function getMail() {
         console.log("maillost")
         lost = true;
     }
+    return typeOneLetter
 }
 
 //every sec gameble for mail
@@ -388,4 +388,7 @@ setInterval (() => {
 
 function ResetMail () {
     numberOfMail = 0;
+    typeOneLetter = 0;
+
+
 }
