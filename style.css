@@ -127,7 +127,7 @@
 
 /* decoration */
 body {
-  background-color: rgb(40, 37, 36);
+  background-color: rgb(91, 109, 91);
   overflow: hidden;
 }
 
@@ -311,10 +311,7 @@ body {
 
 }
 
-.TeachSpeedType {
-  position: relative;
-  color: #12a2ea;
-}
+
 
 .dancingStickman {
   position: absolute;
@@ -336,16 +333,13 @@ body {
 
 .inbox {
   overflow-y: auto;
-  position: absolute;
-  top: 20px;
-  right: 20px;
   margin: auto;
   width: 500px;
   height: 300px;
   background-color: #ffffff;
   border-radius: 25px;
   margin-bottom: 10px;
-  z-index: 10;
+  z-index: -10;
 }
 
 .header {
@@ -418,12 +412,14 @@ body {
 }
 
 
-
-
-.typingGame {
+.typingDiv {
   position: absolute;
   left: 10px;
   bottom: 200px;
+  Width: fit-content;
+}
+
+.typingGame {
   Width: fit-content;
   max-width: 300px;
   padding: 10px;
@@ -432,6 +428,13 @@ body {
   font-family: "Press Start 2P", system-ui;
   font-size: small;
   box-sizing: border-box;
+}
+
+.TeachSpeedType {
+  font-family: "Press Start 2P", system-ui;
+  font-size: small;
+  color: #34e595;
+
 }
 
 #textContainer {

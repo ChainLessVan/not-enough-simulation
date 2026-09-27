@@ -43,7 +43,7 @@
     <div id="game" style="display:none;">
         <img id="TungTung" src="images/TungTungJumpscare.webp">
         <div id="GameContent">
-            <div class="inbox" onclick="getMail()"> 
+            <div class="inbox">
                 <div class="header">
                     <img src="images/gmail.png" class="mailImage"><p class="mailText"><s>My</s> OurMail.com</p>
                 </div>
@@ -74,11 +74,6 @@
                     </div>
                 </div>
             </div>
-            <div class="TeachSpeedType">
-                <h1 class = "speedtypeHeading"> This is speed typer</h1>
-                <p id="liveTime" class="liveTimer">0s</p>
-                <p class ="TeachSpeedType"> below is the sentence you will need to type as fast as possible</p>
-            </div>
             <iframe
                 width="150"
                 height="150"
@@ -88,8 +83,7 @@
                 src="https://www.youtube.com/embed/i0M4ARe9v0Y?autoplay=1&mute=1">
             </iframe>
             <img class="dancingStickman" src="Gifs/henry-stickman.gif" alt="Henry">
-            <img id="BOMB" src="Gifs/Explosion.gif" alt="bomb">
-            <img id="mail"src="images/MailSymbol.jpg" alt="mail">
+            <img id="BOMB" src="Gifs/Explosion.gif" alt="bomb">     
             <!--im gonna make them TOUCH GRASS-->
             <div class="grassCover">
                 <button id="grassButton"></button>
@@ -98,19 +92,23 @@
                     src="images/grass.webp">
                 </img>
             </div>
-
-            
-            <div class="typingGame">
-                <div id="resultsContainer" style="display:none;">
-                    <h2>speedtyper</h2>
-                    <p id="wpmText"></p>
-                    <p id="accuracyText"></p>
-                    <p id="timeText"></p>
-                    <p id="mistakeText"></p>
-                    <p id="win"></p>
+            <div class="typingDiv">
+                <div class="TeachSpeedType">
+                    <h1 class="speedtypeHeading">Speed typer</h1>
+                    <p id="liveTime" class="liveTimer">0s</p>
                 </div>
-                <div id="textContainer">
-                    <div id="Typingline" class="Typingline"></div>
+                <div class="typingGame">
+                    <div id="resultsContainer" style="display:none;">
+                        <h2>speedtyper</h2>
+                        <p id="wpmText"></p>
+                        <p id="accuracyText"></p>
+                        <p id="timeText"></p>
+                        <p id="mistakeText"></p>
+                        <p id="win"></p>
+                    </div>
+                    <div id="textContainer">
+                        <div id="Typingline" class="Typingline"></div>
+                    </div>
                 </div>
             </div>
             <button class="returnFromGame" onclick="returnFromType()"><p class="scenesText">Back</p></button>
@@ -164,6 +162,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
