@@ -88,15 +88,7 @@ const Jumpscare =document.getElementById("TungTung")
 let lost = false;
 let typeOneLetter = 0;
 let sum = 0;
-//perma checks if lost = true then does smth later ill add
-setInterval(() => {
-    if (lost) {
-        document.getElementById("GameContent").style.display = "none";
-        JumpscareSFX.play()
-        Jumpscare.style.display = "block";
-        lost = false;
-    }
-},100)
+
 const distract1 = [];
 function opentyperace() {
     typeOneLetter = 0
@@ -125,6 +117,7 @@ document.getElementById("grassButton").addEventListener("click",()=> {
         grasstouch = true;
         Countdown.pause()
         goodJobVoice.play()
+        TouchGrass = false
     }
 })
 
@@ -195,14 +188,13 @@ function startTypingGame() {
 
     //after split it combines back into a sentence to print out
     textContainer.innerHTML = htmlArr.join('');
-    textContainer.appendChild(Typingline);
     let errors = [];
     let firstTime = true;
     let currentPos = 0;
     let backspaceNeeded = false;
     let currentTime = 0;
     let repeat;
-
+    typeOneLetter = 0
 
     //detect typing
     keylistener = function(event) {
@@ -244,7 +236,7 @@ function startTypingGame() {
             if (key === textArr[currentPos]) {
                 span.color = 'green';
                 currentPos++;
-                typeOneLetter++;
+                typeOneLetter--;
             } else {
 
                 //makes red space
@@ -334,11 +326,14 @@ let numberOfMail = 0;
 //i moved lost variable to the start
 function getMail() {
     const mailBox = document.getElementById("mailBox")
-    const mailTaskArr = ["Type one letter", "This is not a test", "Jonah was not here"];
+    const mailTaskArr = ["Type one letter", "Touch grass", "Jonah was not here"];
     const mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
     YouGotMail.play()
     if (mail === mailTaskArr[0]){
         typeOneLetter = typeOneLetter + 1
+    }
+    if (mail === mailTaskArr[1]) {
+        TouchGrass = true
     }
     mailBox.style.display = "block";
     if (numberOfMail == 0) {
@@ -390,9 +385,25 @@ function ResetMail () {
     for (let id in activeTimers) {
         clearInterval(activeTimers[id])
         delete activeTimers[id];
-        id.innerHTML = "";
+        for (let i = 0; i < 3; i++) {
+            let timer = document.getElementById(`timer${i}`);
+            timer = "";
+            
+        }
     }
 
-
-
 }
+
+//perma checks if lost = true then does smth later ill add
+setInterval( async() => {
+    if (lost) {
+        document.getElementById("GameContent").style.display = "none";
+        JumpscareSFX.play()
+        Jumpscare.style.display = "block";
+        lost = false;
+        await wait(3000);
+        Jumpscare.style.display = "none";
+        GameContent.style.display = "block";
+        returnFromType();
+    }
+},100)
