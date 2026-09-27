@@ -77,7 +77,7 @@ function returnFromType() {
     document.removeEventListener('keydown',keylistener);
     document.getElementById("game").style.display = "none";
     document.getElementById("gameMenu").style.display = "block";
-
+    ResetMail();
     music.play();
 
 
@@ -90,12 +90,6 @@ let typeOneLetter = 0;
 let sum = 0;
 //perma checks if lost = true then does smth later ill add
 setInterval(() => {
-    sum = mailLostCon.forEach(num => { 
-        sum+= num;
-    })
-    if (sum === 7){
-        lost = true
-    }
     if (lost) {
         document.getElementById("GameContent").style.display = "none";
         JumpscareSFX.play()
@@ -144,7 +138,7 @@ async function countdown() {
         lost = true;
     }
 }
-
+let activtimers = {};
 //the emails
 function startCountdown(id) {
     let count = 40;
@@ -342,6 +336,7 @@ function getMail() {
     const mailBox = document.getElementById("mailBox")
     const mailTaskArr = ["Type one letter", "This is not a test", "Jonah was not here"];
     const mail = mailTaskArr[getRandomInt(mailTaskArr.length)];
+    YouGotMail.play()
     if (mail === mailTaskArr[0]){
         typeOneLetter = typeOneLetter + 1
     }
@@ -389,6 +384,15 @@ setInterval (() => {
 function ResetMail () {
     numberOfMail = 0;
     typeOneLetter = 0;
+    for(let i = 1; i <= 7; i++) {
+        document.getElementById(`mailText${i}`).innerHTML = "";
+    }
+    for (let id in activeTimers) {
+        clearInterval(activeTimers[id])
+        delete activeTimers[id];
+        id.innerHTML = "";
+    }
+
 
 
 }
